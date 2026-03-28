@@ -2,7 +2,7 @@ import { ShoppingCart } from "lucide-react";
 
 export default function Navbar() {
   return (
-    <div className="w-full  bg-[#0f8f7a] px-6 py-4 flex items-center justify-between">
+    <div className="w-full bg-[rgb(21,40,47)] px-6 py-4 flex items-center justify-between">
       
       <div className="flex items-center gap-2 px-4">
         <span className="text-white text-3xl cursor-pointer transition-transform duration-200 hover:scale-105">🐬</span>
