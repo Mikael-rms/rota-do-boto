@@ -26,7 +26,7 @@ export default function Navbar() {
           Criar conta
         </span>
 
-        <button className="bg-white text-black cursor-pointer px-4 py-1 rounded-full text-sm font-medium transition-transform duration-200 hover:scale-105">
+        <button className="bg-white text-black px-4 py-1 rounded-full text-sm font-medium transition-transform duration-200 hover:scale-105">
           Entrar
         </button>
       </div>
