@@ -15,7 +15,7 @@ const PASS = "1234";
 
 if (username === USER && password === PASS) {
   setError("");
-  navigate("/home")
+  navigate("/")
 }else{
   setError("Credenciais inválidas. Tente novamente.");
 }

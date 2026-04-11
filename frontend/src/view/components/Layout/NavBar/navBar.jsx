@@ -1,6 +1,9 @@
+import { Link } from "react-router-dom";
+
 import { ShoppingCart } from "lucide-react";
 
 export default function Navbar() {
+
   return (
     <div className="w-full bg-[rgb(21,40,47)] px-6 py-4 flex items-center justify-between">
       
@@ -22,13 +25,13 @@ export default function Navbar() {
         
         <ShoppingCart className="text-black cursor-pointer" size={22} />
 
-        <span className="text-white cursor-pointer text-sm">
+        <Link to="/cadastro" className="text-white cursor-pointer text-sm">
           Criar conta
-        </span>
+        </Link>
 
-        <button className="bg-white text-black px-4 py-1 rounded-full text-sm font-medium transition-transform duration-200 hover:scale-105">
+        <Link to="/login" className="bg-white text-black px-4 py-1 rounded-full text-sm font-medium transition-transform duration-200 hover:scale-105">
           Entrar
-        </button>
+        </Link>
       </div>
     </div>
   );
