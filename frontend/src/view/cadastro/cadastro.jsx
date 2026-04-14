@@ -1,4 +1,25 @@
+import { useState } from "react";
+import { auth } from "../../firebaseConfig";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+
+import { useNavigate } from "react-router-dom";
+
 function CadastroForm() {
+  const navigate = useNavigate();
+
+  const [email, setEmail] = useState("");
+  const [senha, setSenha] = useState("");
+
+  const handleCadastro = async () => {
+    try {
+    const user = await createUserWithEmailAndPassword(auth, email, senha);
+    console.log("Usuário cadastrado:", user.user);
+    navigate("/");
+
+  } catch (error) {
+    alert("Erro ao cadastrar usuário: " + error.message);
+  };
+  };
   return (
     <section className="w-full min-h-screen bg-gray-100 py-6 md:py-10">
       
@@ -38,16 +59,15 @@ function CadastroForm() {
             <h2 className="text-2xl font-semibold mb-6">Dados de acesso</h2>
             <div className="mb-6">
               <label className="block text-xs font-bold text-gray-500 uppercase mb-2 ml-1">Seu Email</label>
-              <input type="email" className="w-full border border-gray-300 rounded-full py-3 px-5 outline-none focus:border-green-500" />
+              <input type="email" onChange={(e) => setEmail(e.target.value)} 
+              className="w-full border border-gray-300 rounded-full py-3 px-5 outline-none focus:border-green-500" />
             </div>
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label className="block text-xs font-bold text-gray-500 uppercase mb-2 ml-1">Senha</label>
-                <input type="password" className="w-full border border-gray-300 rounded-full py-3 px-5 outline-none focus:border-green-500" />
-              </div>
-              <div>
-                <label className="block text-xs font-bold text-gray-500 uppercase mb-2 ml-1">Confirmar Senha</label>
-                <input type="password" className="w-full border border-gray-300 rounded-full py-3 px-5 outline-none focus:border-green-500" />
+                <input type="password" onChange={(e) => setSenha(e.target.value)} 
+                className="w-full border border-gray-300 rounded-full py-3 px-5 outline-none focus:border-green-500" />
               </div>
             </div>
           </div>
@@ -81,7 +101,8 @@ function CadastroForm() {
           </div>
 
           <div className="flex justify-center w-full">
-            <button className="w-full sm:w-80 bg-[#61EE9D] text-black font-semibold py-3 rounded-xl shadow-md hover:brightness-95 transition-all">
+            <button onClick={handleCadastro}
+            className="w-full sm:w-80 bg-[#61EE9D] text-black font-semibold py-3 rounded-xl shadow-md hover:brightness-95 transition-all">
               Registrar
             </button>
           </div>

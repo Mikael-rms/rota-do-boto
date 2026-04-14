@@ -2,25 +2,25 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
+import { auth } from "../../firebaseConfig";
+import { signInWithEmailAndPassword } from "firebase/auth";
+
 function LoginPage() {
 const navigate = useNavigate();
 
-const [username, setUsername] = useState("");
-const [password, setPassword] = useState("");
+const [email, setEmail] = useState("");
+const [senha, setSenha] = useState("");
 
 const [error, setError] = useState("");
 
-function handleLogin() {
-const USER = "admin";
-const PASS = "1234";
-
-if (username === USER && password === PASS) {
-  setError("");
-  navigate("/")
-}else{
-  setError("Credenciais inválidas. Tente novamente.");
-}
-}
+  const handleLogin = async () => {
+    try {
+      const user = await signInWithEmailAndPassword(auth, email, senha);
+      navigate("/");
+    } catch (error) {
+      setError("Credenciais inválidas. Tente novamente.");
+    }
+  };
 return (
 <section className="min-h-screen w-full bg-[linear-gradient(#00000080,#0000004D),url('/background.jpg')] 
 bg-cover bg-center flex items-center justify-center">
@@ -37,13 +37,12 @@ bg-cover bg-center flex items-center justify-center">
       </p>
     </div>
     
-    <div className="bg-white/70 rounded-2xl shadow-2xl p-8 w-full md:w-[400px]">
+    <div className="bg-white rounded-2xl shadow-2xl p-8 w-full md:w-[400px]">
       
-      <input type="email" placeholder="Digite seu usuário" value={username} 
-      onChange={(e) => setUsername(e.target.value)}
+      <input type="email" placeholder="Digite seu email" onChange={(e) => setEmail(e.target.value)}
       className="w-full text-black border border-gray-400 rounded-full px-4 py-2 outline-none mb-6"/>
-      <input type="password" placeholder="Digite sua senha" value={password}
-      onChange={(e) => setPassword(e.target.value)} 
+      
+      <input type="password" placeholder="Digite sua senha" onChange={(e) => setSenha(e.target.value)} 
       className="w-full text-black border border-gray-400 rounded-full px-4 py-2 outline-none mb-6"/>
 
       <button onClick={handleLogin} className="w-full text-white bg-[rgb(21,40,47)] 
