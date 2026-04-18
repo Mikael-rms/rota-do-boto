@@ -1,4 +1,5 @@
 import { FaInstagram } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
@@ -7,20 +8,20 @@ export default function Footer() {
 
             <div>
                 <h2 className="font-bold text-xl mb-4">Institucional</h2>
-                <ul className="space-y-2 text-sm">
-                    <li className="cursor-pointer hover:underline">Quem somos</li>
-                    <li className="cursor-pointer hover:underline">Como funciona?</li>
-                    <li className="cursor-pointer hover:underline">Destino</li>
-                </ul>
+                <div className="grid space-y-2 text-sm">
+                    <Link to="manutencao" className="cursor-pointer hover:underline">Quem somos</Link>
+                    <Link to="manutencao" className="cursor-pointer hover:underline">Como funciona?</Link>
+                    <Link to="manutencao" className="cursor-pointer hover:underline">Destino</Link>
+                </div>
             </div>
 
             <div>
                 <h2 className="font-bold text-xl mb-4">Políticas</h2>
-                <ul className="space-y-2 text-sm">
-                    <li className="cursor-pointer hover:underline">Privacidade e segurança</li>
-                    <li className="cursor-pointer hover:underline">Cancelamentos</li>
-                    <li className="cursor-pointer hover:underline">Termos de Uso</li>
-                </ul>
+                <div className="grid space-y-2 text-sm">
+                    <Link to="manutencao" className="cursor-pointer hover:underline">Privacidade e Segurança</Link>
+                    <Link to="manutencao" className="cursor-pointer hover:underline">Cancelamentos</Link>
+                    <Link to="manutencao" className="cursor-pointer hover:underline">Termos de uso</Link>
+                </div>
             </div>
 
             <div>
@@ -33,10 +34,10 @@ export default function Footer() {
 
             <div>
                 <h2 className="font-bold text-xl mb-4">Precisa de Ajuda?</h2>
-                <ul className="space-y-2 text-sm">
-                    <li className="cursor-pointer hover:underline">Suporte</li>
-                    <li className="cursor-pointer hover:underline">Cancelar pedido</li>
-                </ul>
+                <div className="grid space-y-2 text-sm">
+                    <Link to="manutencao" className="cursor-pointer hover:underline">Superte</Link>
+                    <Link to="manutencao" className="cursor-pointer hover:underline">Cancelar pedido</Link>
+                </div>
             </div>
 
         </div>
