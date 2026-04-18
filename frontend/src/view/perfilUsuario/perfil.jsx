@@ -23,43 +23,41 @@ function Perfil() {
             <h2 className="text-2xl font-semibold mb-6">Seus dados</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <label className="block text-xs font-bold text-gray-500 uppercase mb-2 ml-1">Nome Completo</label>
-                <input type="text" className="w-full border border-gray-300 rounded-full py-3 px-5 outline-none focus:border-green-500" />
+                <label className="block text-xs font-bold text-gray-500 uppercase mb-2 ml-1">Nome Completo:</label>
               </div>
               <div>
-                <label className="block text-xs font-bold text-gray-500 uppercase mb-2 ml-1">Telefone</label>
-                <input type="text" className="w-full border border-gray-300 rounded-full py-3 px-5 outline-none focus:border-green-500" />
+                <label className="block text-xs font-bold text-gray-500 uppercase mb-2 ml-1">Telefone:</label>
               </div>
               <div>
-                <label className="block text-xs font-bold text-gray-500 uppercase mb-2 ml-1">CPF</label>
-                <input type="text" className="w-full border border-gray-300 rounded-full py-3 px-5 outline-none focus:border-green-500" />
+                <label className="block text-xs font-bold text-gray-500 uppercase mb-2 ml-1">CPF:</label>
               </div>
               <div>
-                <label className="block text-xs font-bold text-gray-500 uppercase mb-2 ml-1">Data de Nascimento</label>
-                <input type="text" className="w-full border border-gray-300 rounded-full py-3 px-5 outline-none focus:border-green-500" />
+                <label className="block text-xs font-bold text-gray-500 uppercase mb-2 ml-1">Data de Nascimento:</label>
               </div>
             </div>
           </div>
 
           <hr className="border-gray-300 mb-8" />
 
-          <div className="mb-8">
-            <div className="mb-6">
-              <label className="block text-xs font-bold text-gray-500 uppercase mb-2 ml-1">Seu Email</label>
-              <input type="email" onChange={(e) => setEmail(e.target.value)} 
-              className="w-full border border-gray-300 rounded-full py-3 px-5 outline-none focus:border-green-500" />
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <label className="block text-xs font-bold text-gray-500 uppercase mb-2 ml-1">Senha</label>
-                <input type="password" onChange={(e) => setSenha(e.target.value)} 
-                className="w-full border border-gray-300 rounded-full py-3 px-5 outline-none focus:border-green-500" />
+                <label className="block text-xs font-bold text-gray-500 uppercase mb-2 ml-1">CEP:</label>
+              </div>
+              <div>
+                <label className="block text-xs font-bold text-gray-500 uppercase mb-2 ml-1">Bairro:</label>
+              </div>
+              <div>
+                <label className="block text-xs font-bold text-gray-500 uppercase mb-2 ml-1">Município:</label>
+              </div>
+              <div>
+                <label className="block text-xs font-bold text-gray-500 uppercase mb-2 ml-1">Logradouro:</label>
+              </div>
+              <div>
+                <label className="block text-xs font-bold text-gray-500 uppercase mb-2 ml-1">Numero:</label>
               </div>
             </div>
-          </div>
 
-          <div className="flex justify-center w-full">
+          <div className="flex justify-center w-full mt-6">
             <button className="w-full sm:w-80 bg-[#61EE9D] text-black font-semibold py-3 rounded-xl shadow-md hover:brightness-95 transition-all">
               Editar Dados
             </button>
