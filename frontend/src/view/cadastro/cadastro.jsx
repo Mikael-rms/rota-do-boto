@@ -2,24 +2,53 @@ import { useState } from "react";
 import { auth } from "../../firebaseConfig";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 
+import { doc, setDoc } from "firebase/firestore";
+import { db } from "../../firebaseConfig";
+
 import { useNavigate } from "react-router-dom";
 
 function CadastroForm() {
-  const navigate = useNavigate();
-
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
 
-  const handleCadastro = async () => {
-    try {
-    const user = await createUserWithEmailAndPassword(auth, email, senha);
-    console.log("Usuário cadastrado:", user.user);
-    navigate("/");
+  const [nome, setNome] = useState("");
+  const [telefone, setTelefone] = useState("");
+  const [cpf, setCpf] = useState("");
+  const [nascimento, setNascimento] = useState("");
 
+  const [cep, setCep] = useState("");
+  const [bairro, setBairro] = useState("");
+  const [cidade, setCidade] = useState("");
+  const [logradouro, setLogradouro] = useState("");
+  const [numero, setNumero] = useState("");
+
+  const navigate = useNavigate();
+
+const handleCadastro = async () => {
+  try {
+    const userCredential = await createUserWithEmailAndPassword(auth, email, senha);
+    const user = userCredential.user;
+
+    await setDoc(doc(db, "users", user.uid), {
+      nome,
+      telefone,
+      cpf,
+      nascimento,
+      cep,
+      bairro,
+      cidade,
+      logradouro,
+      numero,
+      email: user.email
+    });
+
+    console.log("Usuário salvo no Firestore");
+
+    navigate("/");
   } catch (error) {
     alert("Erro ao cadastrar usuário: " + error.message);
-  };
-  };
+  }
+};
   return (
     <section className="w-full min-h-screen bg-gray-100 py-6 md:py-10">
       
@@ -36,19 +65,23 @@ function CadastroForm() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label className="block text-xs font-bold text-gray-500 uppercase mb-2 ml-1">Nome Completo</label>
-                <input type="text" className="w-full border border-gray-300 rounded-full py-3 px-5 outline-none focus:border-green-500" />
+                <input type="text" onChange={(e) => setNome(e.target.value)}
+                className="w-full border border-gray-300 rounded-full py-3 px-5 outline-none focus:border-green-500" />
               </div>
               <div>
                 <label className="block text-xs font-bold text-gray-500 uppercase mb-2 ml-1">Telefone</label>
-                <input type="text" className="w-full border border-gray-300 rounded-full py-3 px-5 outline-none focus:border-green-500" />
+                <input type="text" onChange={(e) => setTelefone(e.target.value)}
+                className="w-full border border-gray-300 rounded-full py-3 px-5 outline-none focus:border-green-500" />
               </div>
               <div>
                 <label className="block text-xs font-bold text-gray-500 uppercase mb-2 ml-1">CPF</label>
-                <input type="text" className="w-full border border-gray-300 rounded-full py-3 px-5 outline-none focus:border-green-500" />
+                <input type="text" onChange={(e) => setCpf(e.target.value)}
+                className="w-full border border-gray-300 rounded-full py-3 px-5 outline-none focus:border-green-500" />
               </div>
               <div>
                 <label className="block text-xs font-bold text-gray-500 uppercase mb-2 ml-1">Data de Nascimento</label>
-                <input type="text" className="w-full border border-gray-300 rounded-full py-3 px-5 outline-none focus:border-green-500" />
+                <input type="text" onChange={(e) => setNascimento(e.target.value)}
+                className="w-full border border-gray-300 rounded-full py-3 px-5 outline-none focus:border-green-500" />
               </div>
             </div>
           </div>
@@ -79,23 +112,28 @@ function CadastroForm() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label className="block text-xs font-bold text-gray-500 uppercase mb-2 ml-1">CEP</label>
-                <input type="text" className="w-full border border-gray-300 rounded-full py-3 px-5 outline-none focus:border-green-500" />
+                <input type="text" onChange={(e) => setCep(e.target.value)} 
+                className="w-full border border-gray-300 rounded-full py-3 px-5 outline-none focus:border-green-500" />
               </div>
               <div>
                 <label className="block text-xs font-bold text-gray-500 uppercase mb-2 ml-1">Bairro</label>
-                <input type="text" className="w-full border border-gray-300 rounded-full py-3 px-5 outline-none focus:border-green-500" />
+                <input type="text" onChange={(e) => setBairro(e.target.value)} 
+                className="w-full border border-gray-300 rounded-full py-3 px-5 outline-none focus:border-green-500" />
               </div>
               <div>
                 <label className="block text-xs font-bold text-gray-500 uppercase mb-2 ml-1">Cidade</label>
-                <input type="text" className="w-full border border-gray-300 rounded-full py-3 px-5 outline-none focus:border-green-500" />
+                <input type="text" onChange={(e) => setCidade(e.target.value)} 
+                className="w-full border border-gray-300 rounded-full py-3 px-5 outline-none focus:border-green-500" />
               </div>
               <div>
                 <label className="block text-xs font-bold text-gray-500 uppercase mb-2 ml-1">Logradouro</label>
-                <input type="text" className="w-full border border-gray-300 rounded-full py-3 px-5 outline-none focus:border-green-500" />
+                <input type="text" onChange={(e) => setLogradouro(e.target.value)} 
+                className="w-full border border-gray-300 rounded-full py-3 px-5 outline-none focus:border-green-500" />
               </div>
               <div>
                 <label className="block text-xs font-bold text-gray-500 uppercase mb-2 ml-1">Numero</label>
-                <input type="text" className="w-full border border-gray-300 rounded-full py-3 px-5 outline-none focus:border-green-500" />
+                <input type="text" onChange={(e) => setNumero(e.target.value)} 
+                className="w-full border border-gray-300 rounded-full py-3 px-5 outline-none focus:border-green-500" />
               </div>
             </div>
           </div>
