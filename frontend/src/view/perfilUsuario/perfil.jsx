@@ -39,7 +39,7 @@ function Perfil() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 font-sans">
         
         <h1 className="text-4xl font-bold text-green-800 mb-6">
-          Perfil
+          Olá, {dados?.nome?.split(" ")[0]}!
         </h1>
 
         <div className="border border-gray-300 rounded-[30px] md:rounded-[40px] p-6 md:p-10 shadow-sm bg-white w-full">
