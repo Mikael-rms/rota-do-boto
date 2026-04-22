@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useCart } from "../../context/CartContext";
 
 function Pedido() {
   const navigate = useNavigate();
+
+  const { addToCart } = useCart();
 
   const [selectedSeats, setSelectedSeats] = useState([]);
   const [occupiedSeats] = useState([2, 7, 12, 13, 20]);
@@ -72,10 +75,13 @@ function Pedido() {
     ));
   };
 
-  const handleContinue = () => {
-    if (selectedSeats.length === 0) return;
-    navigate("/carrinho");
-  };
+    const handleContinue = () => {
+        if (selectedSeats.length === 0) return;
+
+        addToCart("trip1", selectedSeats, price);
+
+        navigate("/carrinho");
+    };
 
   return (
     <section className="w-full min-h-screen bg-gray-100 py-10 px-6">

@@ -12,6 +12,7 @@ import Perfil from './view/perfilUsuario/components/perfil.jsx'
 import Pedidos from './view/perfilUsuario/components/pedidos.jsx'
 import Resultados from './view/resultados/resultados.jsx'
 import Pedido from './view/pedido/pedido.jsx'
+import Carrinho from './view/carrinho/carrinho.jsx' 
 import Manutencao from './view/manutencao/manutencao.jsx'
 
 
@@ -52,7 +53,11 @@ const router = createBrowserRouter ([
       },
       {
         path: "/pedido",
-        element: <Pedido />,
+        element: <Pedido />
+      },
+      {
+        path: "/carrinho",
+        element: <Carrinho />
       },
     ],
   },
