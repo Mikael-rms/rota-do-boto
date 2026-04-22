@@ -4,7 +4,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Layout from './view/components/Layout/layout.jsx'
 
 import LoginPage from './view/loginPage/loginPage'
-import TravelSearchCard from './view/Home/components/TravelSearchCard.jsx';
+import Home from './view/Home/home.jsx'
 import CadastroForm from './view/cadastro/cadastro.jsx'
 import AuthLayout from './view/components/AuthLayout/authLayout.jsx'
 
@@ -23,7 +23,7 @@ const router = createBrowserRouter ([
     children: [
       {
         path: "/",
-        element: <TravelSearchCard />,
+        element: <Home />,
       },
       {
         path: "/cadastro",
