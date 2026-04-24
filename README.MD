@@ -8,7 +8,7 @@ Sistema web para busca, seleção e compra de passagens fluviais (lanchas), com 
 
 ---
 
-## 📌 Visão Geral
+### 📌 Visão Geral
 
 O **Rota do Boto** é uma aplicação que simula a compra de passagens de viagens fluviais, permitindo ao usuário:
 
@@ -23,7 +23,7 @@ O projeto foi desenvolvido com foco em **boas práticas de arquitetura**, separa
 
 ---
 
-## 🧠 Arquitetura do Sistema
+### 🧠 Arquitetura do Sistema
 
 ```
 Frontend (React)
@@ -35,29 +35,29 @@ Firebase (Firestore + Auth)
 
 ---
 
-## ⚙️ Tecnologias Utilizadas
+### ⚙️ Tecnologias Utilizadas
 
-### 🖥️ Frontend
+ **`🖥️ Frontend`**
 
 * React.js
 * React Router DOM
 * Tailwind CSS
 * Context API
 
-### 🔐 Backend
+ **`🔐 Backend`**
 
 * Python
 * FastAPI
 * Firebase Admin SDK
 
-### ☁️ Backend-as-a-Service
+**`☁️ Backend-as-a-Service`**
 
 * Firebase Authentication
 * Cloud Firestore
 
 ---
 
-## 🔄 Fluxo da Aplicação
+### 🔄 Fluxo da Aplicação
 
 ```
 Login/Cadastro
@@ -77,9 +77,9 @@ Histórico de pedidos
 
 ---
 
-## 🧾 Estrutura do Banco de Dados (Firestore)
+### 🧾 Estrutura do Banco de Dados (Firestore)
 
-### 📁 users
+ **`📁 users`**
 
 ```json
 {
@@ -88,7 +88,7 @@ Histórico de pedidos
 }
 ```
 
-### 📁 trips
+**`📁 trips`**
 
 ```json
 {
@@ -99,7 +99,7 @@ Histórico de pedidos
 }
 ```
 
-### 📁 orders
+**`📁 orders`**
 
 ```json
 {
@@ -116,7 +116,7 @@ Histórico de pedidos
 
 ---
 
-## 🔥 Funcionalidades
+### 🔥 Funcionalidades
 
 * Autenticação de usuários (Firebase Auth)
 * Proteção de rotas privadas
@@ -131,7 +131,7 @@ Histórico de pedidos
 
 ---
 
-## 🛡️ Regra de Negócio
+### 🛡️ Regra de Negócio
 
 A compra não é feita diretamente pelo frontend:
 
@@ -148,9 +148,9 @@ Isso garante:
 
 ---
 
-## 🚀 Backend (API)
+### 🚀 Backend (API)
 
-### Endpoint principal:
+**`Endpoint principal:`**
 
 ```
 POST /buy
@@ -165,9 +165,9 @@ POST /buy
 
 ---
 
-## 🧪 Como rodar o projeto
+### 🧪 Como rodar o projeto
 
-### 🔹 Frontend
+**`🔹 Frontend`**
 
 ```bash
 git clone https://github.com/Mikael-rms/rota-do-boto-frontend.git
@@ -181,7 +181,7 @@ npm run dev
 
 ---
 
-## 📈 Melhorias Futuras
+### 📈 Melhorias Futuras
 
 * Atualização em tempo real dos assentos
 * Autenticação no backend (JWT)
@@ -191,7 +191,7 @@ npm run dev
 
 ---
 
-## 📌 Observações
+### 📌 Observações
 
 Projeto desenvolvido com foco em:
 
@@ -203,6 +203,6 @@ Projeto desenvolvido com foco em:
 
 ---
 
-## 👨‍💻 Autor
+### 👨‍💻 Autor
 
 Desenvolvido por **Mikael Ramos**
