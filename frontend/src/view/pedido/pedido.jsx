@@ -1,17 +1,51 @@
 import { useState } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../../context/CartContext";
 
+import { useLocation } from "react-router-dom";
+
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../../firebaseConfig";
+
 function Pedido() {
+  const location = useLocation();
+  const viagem = location.state;
+
+  const tripId = viagem?.tripId;
+  const origem = viagem?.origem;
+  const destino = viagem?.destino;
+  const price = viagem?.preco || 120;
   const navigate = useNavigate();
 
   const { addToCart } = useCart();
 
   const [selectedSeats, setSelectedSeats] = useState([]);
-  const [occupiedSeats] = useState([2, 7, 12, 13, 20]);
+  const [occupiedSeats, setOccupiedSeats] = useState([]);
+
+  useEffect(() => {
+    const fetchSeats = async () => {
+      try {
+        const ref = doc(db, "trips", tripId);
+        const snap = await getDoc(ref);
+
+        if (snap.exists()) {
+          const data = snap.data();
+          setOccupiedSeats(data.occupiedSeats || []);
+        } else {
+          console.log("Trip não encontrada");
+        }
+      } catch (error) {
+        console.error("Erro ao buscar assentos:", error);
+      }
+  };
+
+  if (tripId) {
+    fetchSeats();
+  }
+}, [tripId]);
 
   const rows = 10; // 10 linhas
-  const price = 120;
 
   const handleSeatClick = (seatNumber) => {
     if (occupiedSeats.includes(seatNumber)) return;
@@ -44,8 +78,8 @@ function Pedido() {
               <div
                 key={current}
                 onClick={() => handleSeatClick(current)}
-                className={`w-10 h-10 rounded-md flex items-center justify-center text-xs font-bold cursor-pointer transition hover:scale-110 ${getSeatStyle(current)}`}
-              >
+                className={`w-10 h-10 rounded-md flex items-center justify-center text-xs font-bold 
+                cursor-pointer transition hover:scale-110 ${getSeatStyle(current)}`}>
                 {current}
               </div>
             );
@@ -53,7 +87,7 @@ function Pedido() {
         </div>
 
         {/* corredor */}
-        <div className="w-2 h-10"></div>
+        <div className="w-2 h-2"></div>
 
         {/* lado direito */}
         <div className="flex gap-2">
@@ -63,8 +97,8 @@ function Pedido() {
               <div
                 key={current}
                 onClick={() => handleSeatClick(current)}
-                className={`w-10 h-10 rounded-md flex items-center justify-center text-xs font-bold cursor-pointer transition hover:scale-110 ${getSeatStyle(current)}`}
-              >
+                className={`w-10 h-10 rounded-md flex items-center justify-center text-xs font-bold 
+                cursor-pointer transition hover:scale-110 ${getSeatStyle(current)}`}>
                 {current}
               </div>
             );
@@ -79,16 +113,16 @@ function Pedido() {
         if (selectedSeats.length === 0) return;
 
         addToCart("lancha123", selectedSeats, price);
-
+        
         navigate("/carrinho");
     };
 
   return (
     <section className="w-full min-h-screen bg-gray-100 py-10 px-6">
-      <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-10">
+      <div className="max-w-6xl mx-auto flex flex-col items-center justify-center lg:flex-row gap-10">
 
         {/*ASSENTOS */}
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center mt-6">
 
           <h2 className="text-xl font-bold mb-6">
             Escolha seu assento
@@ -121,7 +155,7 @@ function Pedido() {
         </div>
 
         {/* RESUMO */}
-        <div className="bg-white rounded-3xl shadow p-6 w-full max-w-md">
+        <div className="bg-white rounded-3xl shadow p-6 mt-6 w-full max-w-md">
 
           <h2 className="text-2xl font-bold mb-6">
             Resumo do pedido
@@ -130,14 +164,14 @@ function Pedido() {
           <div className="flex justify-between mb-4">
             <div>
               <p className="text-xs text-gray-500">ORIGEM</p>
-              <p className="text-green-700 font-semibold">Manaus</p>
+              <p className="text-green-700 font-semibold">{origem}</p>
             </div>
 
             <div>→</div>
 
             <div>
               <p className="text-xs text-gray-500">DESTINO</p>
-              <p className="text-green-700 font-semibold">Maués</p>
+              <p className="text-green-700 font-semibold">{destino}</p> 
             </div>
           </div>
 
@@ -167,8 +201,7 @@ function Pedido() {
           <button
             onClick={handleContinue}
             disabled={selectedSeats.length === 0}
-            className="w-full bg-green-400 py-3 rounded-xl font-semibold hover:brightness-95 disabled:bg-gray-300"
-          >
+            className="w-full bg-green-400 py-3 rounded-xl font-semibold hover:brightness-95 disabled:bg-gray-300">
             Continuar compra
           </button>
         </div>
