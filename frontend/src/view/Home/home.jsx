@@ -1,6 +1,7 @@
 import TravelSearchCard from './components/TravelSearchCard.jsx'
 import CardEmAlta from './components/CardEmAlta.jsx'
 import CardViagem from './components/CardViagem.jsx'
+import Recepcao from './components/Recepcao.jsx';
 
 const listaCidades = [
   { id: 1, nome: "Manaus", imagem: "/manaus2.jpg" },
@@ -16,7 +17,7 @@ function Home() {
     <section className="min-h-screen w-full bg-[linear-gradient(#00000080,#0000004D),url('/bg-home2.jpg')] bg-cover bg-center bg-scroll">
     <div className="relative inset-0 bg-white/35">
     <div className="relative z-50">
-
+    <Recepcao />
     {/* PESQUISA */}
     <TravelSearchCard />
     
