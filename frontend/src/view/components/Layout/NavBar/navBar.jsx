@@ -32,7 +32,7 @@ export default function Navbar() {
       {user ? (
         //user logado
         <>
-            <ShoppingCart className="text-black cursor-pointer" size={22} />
+            <ShoppingCart className="text-white/55 cursor-pointer" size={22} />
             
             <Link to="/perfil" className="text-white text-sm">
               Perfil

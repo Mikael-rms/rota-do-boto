@@ -48,8 +48,8 @@ function Pedido() {
               <div
                 key={current}
                 onClick={() => handleSeatClick(current)}
-                className={`w-10 h-10 rounded-md flex items-center justify-center text-xs font-bold cursor-pointer transition hover:scale-110 ${getSeatStyle(current)}`}
-              >
+                className={`w-10 h-10 rounded-md flex items-center justify-center text-xs font-bold 
+                cursor-pointer transition hover:scale-110 ${getSeatStyle(current)}`}>
                 {current}
               </div>
             );
@@ -57,7 +57,7 @@ function Pedido() {
         </div>
 
         {/* corredor */}
-        <div className="w-10 h-10"></div>
+        <div className="w-2 h-2"></div>
 
         {/* lado direito */}
         <div className="flex gap-2">
@@ -67,8 +67,8 @@ function Pedido() {
               <div
                 key={current}
                 onClick={() => handleSeatClick(current)}
-                className={`w-10 h-10 rounded-md flex items-center justify-center text-xs font-bold cursor-pointer transition hover:scale-110 ${getSeatStyle(current)}`}
-              >
+                className={`w-10 h-10 rounded-md flex items-center justify-center text-xs font-bold 
+                cursor-pointer transition hover:scale-110 ${getSeatStyle(current)}`}>
                 {current}
               </div>
             );
@@ -89,20 +89,20 @@ function Pedido() {
 
   return (
     <section className="w-full min-h-screen bg-gray-100 py-10 px-6">
-      <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-10">
+      <div className="max-w-6xl mx-auto flex flex-col items-center justify-center lg:flex-row gap-10">
 
-        {/* 🪑 ASSENTOS */}
-        <div className="flex flex-col items-center">
+        {/*ASSENTOS */}
+        <div className="flex flex-col items-center mt-6">
 
           <h2 className="text-xl font-bold mb-6">
             Escolha seu assento
           </h2>
 
           {/* grid */}
-          <div className="flex flex-col gap-3 bg-white/55 p-6 rounded-2xl shadow">
+          <div className="flex flex-col gap-3 p-6">
             {renderSeats()}
           </div>
-
+          
           {/* legenda */}
           <div className="flex gap-6 mt-6 text-sm">
 
@@ -124,8 +124,8 @@ function Pedido() {
           </div>
         </div>
 
-        {/* 📦 RESUMO */}
-        <div className="bg-white rounded-3xl shadow p-6 w-full max-w-md">
+        {/* RESUMO */}
+        <div className="bg-white rounded-3xl shadow p-6 mt-6 w-full max-w-md">
 
           <h2 className="text-2xl font-bold mb-6">
             Resumo do pedido
@@ -171,8 +171,7 @@ function Pedido() {
           <button
             onClick={handleContinue}
             disabled={selectedSeats.length === 0}
-            className="w-full bg-green-400 py-3 rounded-xl font-semibold hover:brightness-95 disabled:bg-gray-300"
-          >
+            className="w-full bg-green-400 py-3 rounded-xl font-semibold hover:brightness-95 disabled:bg-gray-300">
             Continuar compra
           </button>
         </div>
