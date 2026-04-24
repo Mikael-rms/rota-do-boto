@@ -14,16 +14,39 @@ function Carrinho() {
   if (!user || cart.seats.length === 0) return;
 
   try {
-    await addDoc(collection(db, "orders"), {
-      userId: user.uid,
-      tripId: cart.tripId,
-      seats: cart.seats,
-      total: cart.total,
-      status: "confirmado",
-      origem: "Manaus",
-      destino: "Maués",
-      createdAt: new Date()
+    const handleFinishPurchase = async () => {
+  if (!user || cart.seats.length === 0) return;
+
+  try {
+    const response = await fetch("http://127.0.0.1:8000/buy", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        userId: user.uid,
+        tripId: cart.tripId,
+        seats: cart.seats,
+        total: cart.total,
+        origem: "Manaus",
+        destino: "Maués"
+      }),
     });
+
+    const data = await response.json();
+
+    if (!response.ok || data.error) {
+      alert(data.error || "Erro na compra");
+      return;
+    }
+
+    clearCart();
+    navigate("/perfil");
+
+  } catch (error) {
+    console.error("Erro ao conectar com backend:", error);
+  }
+};
 
     clearCart();
 
