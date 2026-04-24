@@ -181,4 +181,11 @@
     right: 0;
     border-right-color: var(--border);
   }
+  .bg-site {
+  background-image: url('/bg-home.jpg');
+  background-attachment: scroll;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 }
