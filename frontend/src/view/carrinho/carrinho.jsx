@@ -1,6 +1,5 @@
+import { useState } from "react";
 import { useCart } from "../../context/CartContext";
-import { db } from "../../firebaseConfig";
-import { collection, addDoc } from "firebase/firestore";
 import { useAuth } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
@@ -10,15 +9,52 @@ function Carrinho() {
   
   const { cart, clearCart } = useCart();
 
-  fetch("http://localhost:5000/buy", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      tripId: cart.tripId,
-      seats: cart.seats,
-      total: cart.total
-    })
-  });
+  const [loading, setLoading] = useState(false);
+
+const handleBuy = async () => {
+  if (loading) return;
+  if (!user) {
+    alert("Usuário não autenticado");
+    return;
+  }
+
+  setLoading(true);
+
+  try {
+    const response = await fetch("http://127.0.0.1:8000/buy", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        userId: user.uid,
+        tripId: cart.tripId,
+        seats: cart.seats,
+        total: cart.total,
+        origem: "Manaus",
+        destino: "Maués",
+      }),
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      alert(data.detail || "Erro na compra");
+      return;
+    }
+
+    alert("Compra realizada com sucesso!");
+
+    clearCart();
+    navigate("/perfil");
+
+  } catch (error) {
+    console.error(error);
+    alert("Erro ao conectar com servidor");
+  } finally {
+    setLoading(false);
+  }
+};
 
   return (
     <section className="w-full min-h-screen bg-gray-100 py-6 md:py-10">
@@ -91,9 +127,10 @@ function Carrinho() {
                 </button>
 
                 <button
-                  onClick={handleFinishPurchase}
+                  onClick={handleBuy}
+                  disabled={loading}
                   className="w-full sm:w-60 bg-[#61EE9D] text-black font-semibold py-3 rounded-xl shadow-md hover:brightness-95 transition-all">
-                  Finalizar compra
+                  {loading ? "Processando..." : "Finalizar compra"}
                 </button>
 
               </div>
