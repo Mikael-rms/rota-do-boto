@@ -10,11 +10,7 @@ function Carrinho() {
   
   const { cart, clearCart } = useCart();
 
-  const handleFinishPurchase = async () => {
-  if (!user || cart.seats.length === 0) return;
-
-  try {
-    const handleFinishPurchase = async () => {
+const handleFinishPurchase = async () => {
   if (!user || cart.seats.length === 0) return;
 
   try {
@@ -45,15 +41,6 @@ function Carrinho() {
 
   } catch (error) {
     console.error("Erro ao conectar com backend:", error);
-  }
-};
-
-    clearCart();
-
-    navigate("/perfil");
-
-  } catch (error) {
-    console.error("Erro ao finalizar compra:", error);
   }
 };
 
