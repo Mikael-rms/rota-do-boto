@@ -1,8 +1,16 @@
 import { useCart } from "../../context/CartContext";
+import { db } from "../../firebaseConfig";
+import { collection, addDoc } from "firebase/firestore";
+import { useAuth } from "../../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 function Carrinho() {
+  const { user } = useAuth();
+  const navigate = useNavigate();
+  
   const { cart, clearCart } = useCart();
 
+<<<<<<< HEAD
   fetch("http://localhost:5000/buy", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -12,6 +20,54 @@ function Carrinho() {
       total: cart.total
     })
   });
+=======
+  const handleFinishPurchase = async () => {
+  if (!user || cart.seats.length === 0) return;
+
+  try {
+    const handleFinishPurchase = async () => {
+  if (!user || cart.seats.length === 0) return;
+
+  try {
+    const response = await fetch("http://127.0.0.1:8000/buy", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        userId: user.uid,
+        tripId: cart.tripId,
+        seats: cart.seats,
+        total: cart.total,
+        origem: "Manaus",
+        destino: "Maués"
+      }),
+    });
+
+    const data = await response.json();
+
+    if (!response.ok || data.error) {
+      alert(data.error || "Erro na compra");
+      return;
+    }
+
+    clearCart();
+    navigate("/perfil");
+
+  } catch (error) {
+    console.error("Erro ao conectar com backend:", error);
+  }
+};
+
+    clearCart();
+
+    navigate("/perfil");
+
+  } catch (error) {
+    console.error("Erro ao finalizar compra:", error);
+  }
+};
+>>>>>>> main
 
   return (
     <section className="w-full min-h-screen bg-gray-100 py-6 md:py-10">
@@ -79,14 +135,13 @@ function Carrinho() {
 
                 <button
                   onClick={clearCart}
-                  className="w-full sm:w-60 bg-red-500 text-white font-semibold py-3 rounded-xl shadow-md hover:brightness-95 transition-all"
-                >
+                  className="w-full sm:w-60 bg-red-500 text-white font-semibold py-3 rounded-xl shadow-md hover:brightness-95 transition-all">
                   Limpar carrinho
                 </button>
 
                 <button
-                  className="w-full sm:w-60 bg-[#61EE9D] text-black font-semibold py-3 rounded-xl shadow-md hover:brightness-95 transition-all"
-                >
+                  onClick={handleFinishPurchase}
+                  className="w-full sm:w-60 bg-[#61EE9D] text-black font-semibold py-3 rounded-xl shadow-md hover:brightness-95 transition-all">
                   Finalizar compra
                 </button>
 

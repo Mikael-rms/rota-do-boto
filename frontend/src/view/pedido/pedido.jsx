@@ -112,8 +112,8 @@ function Pedido() {
     const handleContinue = () => {
         if (selectedSeats.length === 0) return;
 
-        addToCart(tripId, selectedSeats, price);
-
+        addToCart("lancha123", selectedSeats, price);
+        
         navigate("/carrinho");
     };
 

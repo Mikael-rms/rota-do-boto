@@ -7,7 +7,7 @@ export function CartProvider({ children }) {
     tripId: null,
     seats: [],
     total: 0,
-  });
+  }); 
 
   // 👉 adicionar assentos
   const addToCart = (tripId, seats, price) => {
