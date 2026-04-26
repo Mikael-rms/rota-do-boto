@@ -131,7 +131,7 @@ const handleBuy = async () => {
                   disabled={loading}
                   className="w-full sm:w-60 bg-[#61EE9D] text-black font-semibold py-3 rounded-xl shadow-md hover:brightness-95 transition-all">
                   {loading ? "Processando..." : "Finalizar compra"}
-                </button>
+                 </button>
 
               </div>
             </>
