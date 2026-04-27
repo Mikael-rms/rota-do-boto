@@ -23,21 +23,6 @@ const Recepcao = () => {
           Sua viagem pelos rios da Amazônia começa aqui!
         </p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full max-w-4xl">
-          
-          <a href="#promocoes" className="bg-[#00796b] hover:bg-[#005d52] text-white font-bold py-4 px-6 rounded-xl transition-all transform hover:-translate-y-1 shadow-lg text-sm md:text-base">
-            🔥 Promoções de Viagens
-          </a>
-
-          <a href="#destinos" className="bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/30 text-white font-bold py-4 px-6 rounded-xl transition-all transform hover:-translate-y-1 shadow-lg text-sm md:text-base">
-            📍 Escolher Destino
-          </a>
-
-          <a href="#melhores-rotas" className="bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/30 text-white font-bold py-4 px-6 rounded-xl transition-all transform hover:-translate-y-1 shadow-lg text-sm md:text-base">
-            🚢 Melhores Rotas
-          </a>
-
-        </div>
        
       </div>
 
