@@ -10,17 +10,6 @@ function Carrinho() {
   
   const { cart, clearCart } = useCart();
 
-<<<<<<< HEAD
-  fetch("http://localhost:5000/buy", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      tripId: cart.tripId,
-      seats: cart.seats,
-      total: cart.total
-    })
-  });
-=======
   const handleFinishPurchase = async () => {
   if (!user || cart.seats.length === 0) return;
 
@@ -67,7 +56,6 @@ function Carrinho() {
     console.error("Erro ao finalizar compra:", error);
   }
 };
->>>>>>> main
 
   return (
     <section className="w-full min-h-screen bg-gray-100 py-6 md:py-10">
