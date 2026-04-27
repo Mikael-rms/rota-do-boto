@@ -1,0 +1,79 @@
+import React from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+
+const Promocoes = () => {
+  const dadosPromo = [
+    { id: 1, destino: "Manaus para Belém", img: "/manaus.jpg", desconto: "20% OFF", de: "R$ 350", por: "R$ 280" },
+    { id: 2, destino: "Manaus para Parintins", img: "/parintins.jpeg", desconto: "15% OFF", de: "R$ 180", por: "R$ 153" },
+    { id: 3, destino: "Parintins para Tefe", img: "/tefe.jpg", desconto: "10% OFF", de: "R$ 290", por: "R$ 261" },
+    { id: 4, destino: "Maues para Manaus", img: "/maues.jpeg", desconto: "25% OFF", de: "R$ 400", por: "R$ 300" },
+  ];
+
+  return (
+    <section id="promocoes" className="py-20 text-white overflow-hidden bg-transparent">
+      <div className="container mx-auto px-6">
+        
+        <div className="mb-12">
+          <h2 className="text-3xl md:text-5xl font-bold italic drop-shadow-lg">
+            Promoções <span className="text-[#00796b]">Imperdíveis!</span>
+          </h2>
+        </div>
+
+        <Swiper
+          modules={[Navigation, Pagination, Autoplay]}
+          spaceBetween={24}
+          slidesPerView={1}
+          navigation
+          pagination={{ clickable: true }}
+          autoplay={{ delay: 5000 }}
+          breakpoints={{
+            640: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 },
+          }}
+          className="pb-12"
+        >
+          {dadosPromo.map((promo) => (
+            <SwiperSlide key={promo.id}>
+              <div className="relative group overflow-hidden h-72 w-full shadow-lg border border-white/10 bg-transparent cursor-pointer rounded-2xl">
+                
+                <img 
+                  src={promo.img} 
+                  alt={promo.destino} 
+                  className="object-cover w-full h-full transition-transform duration-700 ease-out group-hover:scale-107" 
+                />
+                
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-90 transition-opacity duration-500 group-hover:opacity-100"></div>
+                
+                <div className="absolute top-4 right-4 bg-orange-600 text-white font-bold px-3 py-1 rounded-full text-xs animate-pulse">
+                  {promo.desconto}
+                </div>
+
+                <div className="absolute inset-0 flex flex-col justify-end p-6">
+                  <h3 className="text-white text-2xl font-bold italic drop-shadow-[0_4px_4px_rgba(0,0,0,0.8)] transition-transform duration-500 group-hover:-translate-y-2">
+                    {promo.destino}
+                  </h3>
+                  
+                  <div className="flex justify-between items-baseline mt-3 opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform group-hover:-translate-y-1">
+                    <span className="text-gray-400 line-through text-sm italic">
+                        De: {promo.de}
+                    </span>
+                    <span className="text-[#00796b] font-bold text-2xl drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
+                        {promo.por}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+    </section>
+  );
+};
+
+export default Promocoes;

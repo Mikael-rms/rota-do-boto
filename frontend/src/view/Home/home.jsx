@@ -2,6 +2,7 @@ import TravelSearchCard from './components/TravelSearchCard.jsx'
 import CardEmAlta from './components/CardEmAlta.jsx'
 import CardViagem from './components/CardViagem.jsx'
 import Recepcao from './components/Recepcao.jsx';
+import Promocoes from './components/Promocao.jsx';
 
 const listaCidades = [
   { id: 1, nome: "Manaus", imagem: "/manaus2.jpg" },
@@ -55,7 +56,7 @@ function Home() {
         <CardViagem titulo="Coari para Manaus" descricao="Consectetur adipiscing elit." imagem="/maues.jpeg" />
       </div>
       </section>
-    
+    <Promocoes />
     </div>
     </div>
     </section>
