@@ -18,11 +18,11 @@ export default function MobileMenu({ open, setOpen, handleSignOut }) {
 
       {/* Sidebar */}
       <div
-        className={`fixed top-0 right-0 h-screen w-72 bg-[rgb(21,40,47)] text-white z-[9999] transform transition-all duration-300 ${
+        className={`fixed top-0 right-0 h-screen w-55 bg-[rgb(21,40,47)] text-white z-[9999] transform transition-all duration-300 ${
           open ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <div className="p-6 space-y-6">
+          <div className="flex flex-col p-6 space-y-6">
 
           <h2 className="text-lg font-semibold">Menu</h2>
 
@@ -58,8 +58,8 @@ export default function MobileMenu({ open, setOpen, handleSignOut }) {
             </>
           ) : (
             <>
-              <Link to="/cadastro">Criar conta</Link>
-              <Link to="/login">Entrar</Link>
+              <Link to="/cadastro" className="text-center">Criar conta</Link>
+              <Link to="/login" className="bg-white text-center text-black px-4 py-2 rounded-full text-sm font-medium hover:scale-105 transition">Entrar</Link>
             </>
           )}
         </div>
