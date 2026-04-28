@@ -4,13 +4,20 @@ import { useAuth } from "../../../../context/AuthContext.jsx";
 import { signOut } from "firebase/auth";
 import { auth } from "../../../../firebaseConfig.js";
 
+import { useState } from "react";
+import MenuLateral from "./menuLateral.jsx";
+import Hamburger from "./hamburger.jsx";
+
 export default function Navbar() {
+  const [open, setOpen] = useState(false);
+
   const { user } = useAuth();
   const handleSignOut = () => {
     signOut(auth)
   } 
 
   return (
+    <>
     <div className="w-full bg-[rgb(21,40,47)] px-6 py-4 flex items-center justify-between">
       
       <div className="flex items-center gap-2 px-4">
@@ -26,8 +33,7 @@ export default function Navbar() {
 
       </div>
 
-
-      <div className="flex items-center gap-4 px-4">
+      <div className="hidden md:flex items-center gap-4 px-4">
 
       {user ? (
         //user logado
@@ -55,7 +61,16 @@ export default function Navbar() {
             </Link>
           </>
         )}
+
       </div>
+
+            <div className="md:hidden">
+          <Hamburger open={open} setOpen={setOpen} />
+      </div>
+
+          
     </div>
+<MenuLateral open={open} setOpen={setOpen} handleSignOut={handleSignOut} />
+    </>
   );
 }
