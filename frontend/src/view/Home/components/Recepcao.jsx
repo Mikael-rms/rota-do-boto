@@ -15,7 +15,7 @@ const Recepcao = () => {
 
       <div className="relative z-10 text-center px-4 flex flex-col items-center">
         
-        <h1 className="text-white text-3xl sm:text-5xl md:text-7xl font-extrabold mb-4 drop-shadow-2xl">
+        <h1 className="text-white text-3xl sm:text-5xl md:text-7xl font-extrabold mb-4 leading-tight drop-shadow-lg">
           Seja Bem-vindo ao <span className="text-[#00796b]">Rota do Boto</span>
         </h1>
         
