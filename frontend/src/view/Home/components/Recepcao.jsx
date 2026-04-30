@@ -23,7 +23,6 @@ const Recepcao = () => {
           Sua viagem pelos rios da Amazônia começa aqui!
         </p>
 
-       
       </div>
 
     </section>
