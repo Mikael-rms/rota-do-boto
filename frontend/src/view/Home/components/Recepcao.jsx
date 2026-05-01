@@ -1,9 +1,11 @@
 import React from 'react';
+import TravelCard from './TravelSearchCard';
 
 const Recepcao = () => {
   return (
-    <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden py-10">
+    <section className="relative w-full min-h-screen flex justify-center overflow-hidden py-10">
       
+      {/* Background e Overlay */}
       <div className="absolute inset-0 z-0">
         <img 
           src="/recepcao.jpeg" 
@@ -13,18 +15,24 @@ const Recepcao = () => {
         <div className="absolute inset-0 bg-black/50"></div>
       </div>
 
-      <div className="relative z-10 text-center px-4 flex flex-col items-center">
+      {/* 
+          Ajuste de Padding Top (pt):
+          - pt-48: Empurra o título mais para baixo do que o anterior.
+      */}
+      <div className="relative z-10 text-center px-4 flex flex-col items-center pt-48">
         
-        <h1 className="text-white text-3xl sm:text-5xl md:text-7xl font-extrabold mb-4 drop-shadow-2xl">
+        {/* Título Principal */}
+        <h1 className="text-white text-3xl sm:text-5xl md:text-7xl font-extrabold drop-shadow-2xl mb-2">
           Seja Bem-vindo ao <span className="text-[#00796b]">Rota do Boto</span>
         </h1>
-        
-        <p className="text-gray-200 text-base sm:text-lg md:text-xl mb-10 max-w-2xl font-medium">
-          Sua viagem pelos rios da Amazônia começa aqui!
-        </p>
 
+        {/* Subtítulo H2 - Aumentando o mb para descer o card */}
+<h2 className="text-gray-200 text-lg sm:text-2xl md:text-3xl mt-4 mb-44 max-w-3xl font-medium drop-shadow-md">
+  Sua viagem pelos rios da Amazônia começa aqui!
+</h2>
+
+        <TravelCard />
       </div>
-
     </section>
   );
 };
