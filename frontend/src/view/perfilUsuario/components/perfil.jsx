@@ -11,7 +11,7 @@ import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../../firebaseConfig";
 
 function Perfil() {
-  const { user } = useAuth();
+  const { user } = useAwuth();
   const [dados, setDados] = useState(null);
 
   const navigate = useNavigate();

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const CampoEntrada = ({ rotulo, icone: Icone, placeholder, tipo = "text" }) => {
+const campoEntrada = ({ rotulo, icone: Icone, placeholder, tipo, campo }) => {
   return (
     <div className="flex flex-col gap-2 w-full text-left">
       <label className="text-gray-500 text-xs font-semibold uppercase">{rotulo}</label>
@@ -9,6 +9,7 @@ const CampoEntrada = ({ rotulo, icone: Icone, placeholder, tipo = "text" }) => {
         <input 
           type={tipo} 
           placeholder={placeholder} 
+          onChange={campo}
           className="w-full outline-none text-sm text-gray-700 bg-transparent"
         />
       </div>
@@ -16,4 +17,4 @@ const CampoEntrada = ({ rotulo, icone: Icone, placeholder, tipo = "text" }) => {
   );
 };
 
-export default CampoEntrada;
+export default campoEntrada;
