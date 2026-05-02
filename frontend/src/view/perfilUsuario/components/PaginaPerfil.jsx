@@ -90,7 +90,7 @@ const PaginaPerfil = () => {
         </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
             <CampoEntrada rotulo="CEP" campo= {dados?.cep} />
-            <CampoEntrada rotulo="Município" campo= {dados?.municipios} />
+            <CampoEntrada rotulo="Município" campo= {dados?.municipio} />
             <CampoEntrada rotulo="Bairro" campo= {dados?.bairro} />
             <CampoEntrada rotulo="Logradouro" campo= {dados?.logradouro} />
             <CampoEntrada rotulo="Número" campo= {dados?.numero} />
