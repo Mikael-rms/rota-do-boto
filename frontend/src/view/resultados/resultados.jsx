@@ -3,13 +3,12 @@ import { useNavigate } from "react-router-dom";
 function Resultados() {
   const navigate = useNavigate();
 
-  const viagem = {
-    tripId: "lancha123",
-    origem: "Manaus",
-    destino: "Maués",
-    horario: "08:00",
-    preco: 120
-  };
+const lanchas = [
+  { id: "lancha1", preco: 120 },
+  { id: "lancha2", preco: 130 },
+  { id: "lancha3", preco: 110 },
+  { id: "lancha4", preco: 125 },
+];
 
   return (
     <div className="w-full min-h-screen bg-gray-100 p-4 sm:p-6 flex flex-col items-center">
@@ -80,14 +79,23 @@ function Resultados() {
 
               {/* Botão de comprar passagem */}
               <div className="flex justify-end mt-4">
-                <button
-                  onClick={() =>
-                    navigate("/pedido", { state: viagem })
-                  }
-                  className="w-full sm:w-auto bg-[#56e39f] hover:bg-[#45cc8b] text-[#004d40] font-bold py-3 px-10 rounded-2xl shadow-md transition-all hover:scale-105 text-base uppercase"
-                >
-                  Comprar passagem
-                </button>
+                {lanchas.map((lancha) => (
+                  <button
+                    key={lancha.id}
+                    onClick={() =>
+                      navigate("/pedido", {
+                        state: {
+                          tripId: lancha.id,
+                          preco: lancha.preco,
+                          origem: "Manaus",
+                          destino: "Parintins"
+                        },
+                      })
+                    }
+                  >
+                    Comprar
+                  </button>
+                ))}
               </div>
             </div>
 
