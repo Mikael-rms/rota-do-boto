@@ -1,23 +1,40 @@
-import React, { useState } from 'react';
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { auth } from "../../../firebaseConfig";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { useEffect, useState } from "react";
+import { useAuth } from "../../../context/AuthContext";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../../../firebaseConfig";
+
 import { User, FileText, CreditCard, Calendar, Phone, MapPin, LogOut, Ticket } from 'lucide-react';
 import CampoEntrada from './CampoEntrada';
 import ItemMenu from './ItemMenu';
 
 
 const PaginaPerfil = () => {
+  const { user } = useAuth();
+  const [dados, setDados] = useState(null);
+
   const [abaAtiva, setAbaAtiva] = useState('perfil');
-  const municipios = [
-    "Alvarães", "Amaturá", "Anamã", "Anori", "Apuí", "Atalaia do Norte", "Autazes", 
-    "Barcelos", "Barreirinha", "Benjamin Constant", "Beruri", "Boa Vista do Ramos", "Boca do Acre", "Borba", 
-    "Caapiranga", "Canutama", "Carauari", "Careiro", "Careiro da Várzea", "Coari", "Codajás", 
-    "Eirunepé", "Envira", "Fonte Boa", "Guajará", "Humaitá", "Ipixuna", 
-    "Iranduba", "Itacoatiara", "Itamarati", "Itapiranga", "Japurá", "Juruá", "Jutaí", 
-    "Lábrea", "Manacapuru", "Manaquiri", "Manaus", "Manicoré", "Maraã", "Maués", 
-    "Nhamundá", "Nova Olinda do Norte", "Novo Airão", "Novo Aripuanã", "Parintins", "Pauini", "Presidente Figueiredo", 
-    "Rio Preto da Eva", "Santa Isabel do Rio Negro", "Santo Antônio do Içá", "São Gabriel da Cachoeira", 
-    "São Paulo de Olivença", "São Sebastião do Uatumã", "Silves", "Tabatinga", "Tapauá", "Tefé",
-    "Tonantins", "Uarini", "Urucará", "Urucurituba"
-  ];
+
+  const navigate = useNavigate();
+  useEffect(() => {
+    const fetchData = async () => {
+      if (!user) return;
+
+      const docRef = doc(db, "users", user.uid);
+      const docSnap = await getDoc(docRef);
+
+      if (docSnap.exists()) {
+        setDados(docSnap.data());
+      }
+    };
+
+    fetchData();
+  }, [user]);
+
+  if (!dados) return <p>Carregando...</p>;
 
   return (
     <div className="min-h-screen bg-gray-50 p-4 md:p-12 flex items-start justify-start w-full">
@@ -58,10 +75,10 @@ const PaginaPerfil = () => {
             <hr className="border-gray-200" />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
-            <CampoEntrada rotulo="Nome" icone={User} placeholder="Digite seu nome completo" />
-            <CampoEntrada rotulo="CPF" icone={CreditCard} placeholder="Digite o seu cpf" />
-            <CampoEntrada rotulo="Data de Nascimento" icone={Calendar} placeholder="Data de Nascimento" />
-            <CampoEntrada rotulo="Telefone" icone={Phone} placeholder="Digite o seu numero de telefone" />
+            <CampoEntrada rotulo="Nome" campo= {dados?.nome} />
+            <CampoEntrada rotulo="CPF" campo= {dados?.cpf} />
+            <CampoEntrada rotulo="Data de Nascimento" campo= {dados?.nascimento} />
+            <CampoEntrada rotulo="Telefone" campo= {dados?.telefone} />
           </div>
         </section>
 
@@ -72,22 +89,11 @@ const PaginaPerfil = () => {
             <hr className="border-gray-200" />
         </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
-            <CampoEntrada rotulo="CEP" placeholder="Digite o seu cep" />
-           
-            <div className="flex flex-col gap-2">
-            <label className="text-gray-500 text-xs font-semibold uppercase">Município</label>
-             <select className="border border-gray-300 rounded-md px-3 py-2 text-sm text-gray-700 outline-none focus:border-sky-500 bg-white cursor-pointer">
-             <option value="">Selecione seu município</option>
-        
-             {municipios.sort().map((cidade, index) => (
-            <option key={index} value={cidade}>{cidade} </option>
-             ))}
-             </select>
-            </div>
-            
-            <CampoEntrada rotulo="Bairro" placeholder="Digite o seu bairro" />
-            <CampoEntrada rotulo="Logradouro" placeholder="Digite o seu logradouro" />
-            <CampoEntrada rotulo="Número" placeholder="Digite o seu número" />
+            <CampoEntrada rotulo="CEP" campo= {dados?.cep} />
+            <CampoEntrada rotulo="Município" campo= {dados?.municipios} />
+            <CampoEntrada rotulo="Bairro" campo= {dados?.bairro} />
+            <CampoEntrada rotulo="Logradouro" campo= {dados?.logradouro} />
+            <CampoEntrada rotulo="Número" campo= {dados?.numero} />
           </div>
         </section>
 

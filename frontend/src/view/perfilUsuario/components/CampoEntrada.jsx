@@ -1,16 +1,11 @@
 import React from 'react';
 
-const CampoEntrada = ({ rotulo, icone: Icone, placeholder, tipo = "text" }) => {
+const CampoEntrada = ({ rotulo, campo }) => {
   return (
     <div className="flex flex-col gap-2 w-full text-left">
-      <label className="text-gray-500 text-xs font-semibold uppercase">{rotulo}</label>
-      <div className="flex items-center gap-3 border border-gray-300 rounded-md px-3 py-2 bg-white focus-within:border-sky-500 transition-colors">
-        {Icone && <Icone size={18} className="text-gray-400" />}
-        <input 
-          type={tipo} 
-          placeholder={placeholder} 
-          className="w-full outline-none text-sm text-gray-700 bg-transparent"
-        />
+      <h2 className="text-gray-500 text-xs font-semibold uppercase">{rotulo}</h2>
+      <div className="flex items-center gap-3 border border-gray-300 rounded-md px-3 py-2 bg-gray-100 focus-within:border-sky-500 transition-colors">
+        <label className="w-full outline-none text-sm text-gray-700 bg-transparent">{campo}</label>
       </div>
     </div>
   );
