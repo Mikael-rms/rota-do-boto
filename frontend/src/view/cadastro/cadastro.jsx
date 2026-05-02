@@ -133,14 +133,14 @@ const handleCadastro = async () => {
               <div>
                 <label className="block text-xs font-bold text-gray-500 uppercase mb-2 ml-1">Município</label>
                 <select value={municipio} onChange={(e) => setMunicipio(e.target.value)} className="w-full border border-gray-300 rounded-full py-3 px-5 outline-none focus:border-green-500">
-  <option value="">Selecione um município</option>
+                  <option value="">Selecione um município</option>
 
-  {municipios.map((c, index) => (
-    <option key={index} value={c}>
-      {c}
-    </option>
-  ))}
-</select>
+                  {municipios.map((c, index) => (
+                    <option key={index} value={c}>
+                      {c}
+                    </option>
+                  ))}
+                </select>
               </div>
               <div>
                 <label className="block text-xs font-bold text-gray-500 uppercase mb-2 ml-1">Logradouro</label>
@@ -157,7 +157,7 @@ const handleCadastro = async () => {
 
           <div className="flex justify-center w-full">
             <button onClick={handleCadastro}
-            className="w-full sm:w-80 bg-[#61EE9D] text-black font-semibold py-3 rounded-xl shadow-md hover:brightness-95 transition-all">
+            className="w-full sm:w-80 bg-sky-500 text-black font-semibold py-3 rounded-xl shadow-md hover:brightness-95 transition-all">
               Registrar
             </button>
           </div>
