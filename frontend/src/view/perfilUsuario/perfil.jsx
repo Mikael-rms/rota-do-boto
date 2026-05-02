@@ -1,9 +1,9 @@
 import PaginaPerfil from './components/PaginaPerfil.jsx'
 
-function PerfilUsuario() {
+function Perfil() {
     return (
         <>
          <PaginaPerfil />
         </>
     )
-} export default PerfilUsuario
+} export default Perfil
