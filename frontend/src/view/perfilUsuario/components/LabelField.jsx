@@ -1,6 +1,6 @@
 import React from 'react';
 
-const CampoEntrada = ({ rotulo, campo }) => {
+const LabelField = ({ rotulo, campo }) => {
   return (
     <div className="flex flex-col gap-2 w-full text-left">
       <h2 className="text-gray-500 text-xs font-semibold uppercase">{rotulo}</h2>
@@ -11,4 +11,4 @@ const CampoEntrada = ({ rotulo, campo }) => {
   );
 };
 
-export default CampoEntrada;
+export default LabelField;

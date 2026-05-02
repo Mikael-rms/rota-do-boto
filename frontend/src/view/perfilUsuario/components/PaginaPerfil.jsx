@@ -8,7 +8,7 @@ import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../../firebaseConfig";
 
 import { User, FileText, CreditCard, Calendar, Phone, MapPin, LogOut, Ticket } from 'lucide-react';
-import CampoEntrada from './CampoEntrada';
+import LabelField from './LabelField';
 import ItemMenu from './ItemMenu';
 
 
@@ -75,10 +75,10 @@ const PaginaPerfil = () => {
             <hr className="border-gray-200" />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
-            <CampoEntrada rotulo="Nome" campo= {dados?.nome} />
-            <CampoEntrada rotulo="CPF" campo= {dados?.cpf} />
-            <CampoEntrada rotulo="Data de Nascimento" campo= {dados?.nascimento} />
-            <CampoEntrada rotulo="Telefone" campo= {dados?.telefone} />
+            <LabelField rotulo="Nome" campo= {dados?.nome} />
+            <LabelField rotulo="CPF" campo= {dados?.cpf} />
+            <LabelField rotulo="Data de Nascimento" campo= {dados?.nascimento} />
+            <LabelField rotulo="Telefone" campo= {dados?.telefone} />
           </div>
         </section>
 
@@ -89,11 +89,11 @@ const PaginaPerfil = () => {
             <hr className="border-gray-200" />
         </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
-            <CampoEntrada rotulo="CEP" campo= {dados?.cep} />
-            <CampoEntrada rotulo="Município" campo= {dados?.municipio} />
-            <CampoEntrada rotulo="Bairro" campo= {dados?.bairro} />
-            <CampoEntrada rotulo="Logradouro" campo= {dados?.logradouro} />
-            <CampoEntrada rotulo="Número" campo= {dados?.numero} />
+            <LabelField rotulo="CEP" campo= {dados?.cep} />
+            <LabelField rotulo="Município" campo= {dados?.municipio} />
+            <LabelField rotulo="Bairro" campo= {dados?.bairro} />
+            <LabelField rotulo="Logradouro" campo= {dados?.logradouro} />
+            <LabelField rotulo="Número" campo= {dados?.numero} />
           </div>
         </section>
 
