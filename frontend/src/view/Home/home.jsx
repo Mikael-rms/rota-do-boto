@@ -21,8 +21,7 @@ function Home() {
     <div className="relative inset-0 bg-white/35">
     <div className="relative z-50">
     <Recepcao />
-    {/* PESQUISA */}
-    <TravelSearchCard />
+     <Promocoes />
     
     {/* DESTINOS EM ALTA */}
     <div className="p-8 min-h-screen bg-transparent rounded-lg">
@@ -58,7 +57,6 @@ function Home() {
         <CardViagem titulo="Coari para Manaus" descricao="Consectetur adipiscing elit." imagem="/maues.jpeg" />
       </div>
       </section>
-    <Promocoes />
     </div>
     </div>
     </section>

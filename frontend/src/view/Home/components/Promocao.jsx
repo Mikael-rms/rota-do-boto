@@ -2,6 +2,7 @@ import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 
+// Import dos estilos do Swiper
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -16,6 +17,17 @@ const Promocoes = () => {
 
   return (
     <section id="promocoes" className="py-20 text-white overflow-hidden bg-transparent">
+  
+      <style dangerouslySetInnerHTML={{ __html: `
+        #promocoes .swiper-button-next, 
+        #promocoes .swiper-button-prev {
+          color: #ffffff !important;
+        }
+        #promocoes .swiper-pagination-bullet-active {
+          background: #ffffff !important;
+        }
+      `}} />
+
       <div className="container mx-auto px-6">
         
         <div className="mb-12">
