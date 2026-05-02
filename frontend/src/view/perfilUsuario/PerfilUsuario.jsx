@@ -1,11 +1,9 @@
-import Perfil from './components/perfil.jsx'
-import Historico from './components/historico.jsx'
+import PaginaPerfil from './components/PaginaPerfil.jsx'
 
 function PerfilUsuario() {
     return (
         <>
-         <Perfil />
-         <Historico />
+         <PaginaPerfil />
         </>
     )
 } export default PerfilUsuario
