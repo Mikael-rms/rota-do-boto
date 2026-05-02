@@ -39,6 +39,8 @@ function Home() {
       </div>
     </div>
 
+    
+
     {/* VIAGENS MAIS PROCURADAS */}
     <section className="p-8 min-h-screen mt-1">
       <h2 className="text-white text-right text-3xl -mt-4 mb-6 font-bold">Viagens mais procuradas</h2>
