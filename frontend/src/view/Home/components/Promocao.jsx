@@ -9,10 +9,10 @@ import 'swiper/css/pagination';
 
 const Promocoes = () => {
   const dadosPromo = [
-    { id: 1, destino: "Manaus para Belém", img: "/manaus.jpg", desconto: "20% OFF", de: "R$ 350", por: "R$ 280" },
-    { id: 2, destino: "Manaus para Parintins", img: "/parintins.jpeg", desconto: "15% OFF", de: "R$ 180", por: "R$ 153" },
-    { id: 3, destino: "Parintins para Tefe", img: "/tefe.jpg", desconto: "10% OFF", de: "R$ 290", por: "R$ 261" },
-    { id: 4, destino: "Maues para Manaus", img: "/maues.jpeg", desconto: "25% OFF", de: "R$ 400", por: "R$ 300" },
+    { id: 1, destino: "Itapiranga para Urucará", img: "/urucara.jpg", desconto: "20% OFF", de: "R$ 350", por: "R$ 280" },
+    { id: 2, destino: "Manaus para Parintins", img: "/parintins2.jpg", desconto: "15% OFF", de: "R$ 180", por: "R$ 153" },
+    { id: 3, destino: "Tefé para Manaus", img: "/manaus3.jpg", desconto: "10% OFF", de: "R$ 290", por: "R$ 261" },
+    { id: 4, destino: "Manaus para Anori", img: "/anori.jpg", desconto: "25% OFF", de: "R$ 400", por: "R$ 300" },
   ];
 
   return (
@@ -31,8 +31,8 @@ const Promocoes = () => {
       <div className="container mx-auto px-6">
         
         <div className="mb-12">
-          <h2 className="text-3xl md:text-5xl font-bold italic drop-shadow-lg">
-            Promoções <span className="text-[#00796b]">Imperdíveis!</span>
+          <h2 className="text-3xl md:text-4xl font-bold italic drop-shadow-lg">
+            Promoções <span className="text-sky-600">Imperdíveis!</span>
           </h2>
         </div>
 
@@ -74,7 +74,7 @@ const Promocoes = () => {
                     <span className="text-gray-400 line-through text-sm italic">
                         De: {promo.de}
                     </span>
-                    <span className="text-[#00796b] font-bold text-2xl drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
+                    <span className="text-sky-700 font-bold text-2xl drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
                         {promo.por}
                     </span>
                   </div>

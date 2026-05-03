@@ -77,7 +77,7 @@ const PaginaPerfil = () => {
         {/* Dados pessoais */}
         <section>
          <div className="px-8 pt-8 pb-4 text-left">
-            <h1 className="text-sky-500 text-2xl font-bold mb-4 text-left">Dados pessoais</h1>
+            <h1 className="text-sky-700 text-2xl font-bold mb-4 text-left">Dados pessoais</h1>
             <hr className="border-gray-200" />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
@@ -91,7 +91,7 @@ const PaginaPerfil = () => {
         {/* Endereço */}
         <section>
           <div className="px-8 pt-8 pb-4 text-left">
-            <h1 className="text-sky-500 text-2xl font-bold mb-4 text-left">Endereço</h1>
+            <h1 className="text-sky-700 text-2xl font-bold mb-4 text-left">Endereço</h1>
             <hr className="border-gray-200" />
         </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">

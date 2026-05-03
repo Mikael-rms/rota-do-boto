@@ -14,7 +14,7 @@ const lanchas = [
     <div className="w-full min-h-screen bg-gray-100 p-4 sm:p-6 flex flex-col items-center">
       <div className="w-full max-w-5xl">
 
-        <h1 className="text-4xl font-bold text-center text-green-800 mb-6">
+        <h1 className="text-4xl font-bold text-center text-sky-700 mb-6">
           Resultados da sua busca:
         </h1>
 
@@ -39,7 +39,7 @@ const lanchas = [
                   <p className="text-gray-400 text-[10px] font-bold uppercase mb-1">
                     Embarcação
                   </p>
-                  <p className="font-extrabold text-[#00796b] text-xl leading-tight">
+                  <p className="font-extrabold text-sky-600 text-xl leading-tight">
                     xxxxxxx - Lancha
                   </p>
                   <div className="flex items-center gap-1 text-gray-400 text-xs mt-1">
@@ -49,7 +49,7 @@ const lanchas = [
                   {/* Preço */}
                   <p className="text-gray-400 mt-3 font-bold text-sm uppercase">
                     Preço:{" "}
-                    <span className="text-[#00796b] text-xl">
+                    <span className="text-sky-600 text-xl">
                       R$000
                     </span>
                   </p>
@@ -60,7 +60,7 @@ const lanchas = [
                   <p className="text-gray-400 text-[10px] font-bold uppercase mb-1">
                     Tempo de Viagem
                   </p>
-                  <p className="font-extrabold text-[#00796b] text-3xl">
+                  <p className="font-extrabold text-sky-600 text-3xl">
                     00H
                   </p>
                 </div>
@@ -70,7 +70,7 @@ const lanchas = [
                   <p className="text-gray-400 text-[10px] font-bold uppercase mb-1">
                     Data de Partida
                   </p>
-                  <p className="font-extrabold text-[#00796b] text-lg">
+                  <p className="font-extrabold text-sky-600 text-lg">
                     00/00/0000 - 00H
                   </p>
                 </div>
@@ -79,23 +79,14 @@ const lanchas = [
 
               {/* Botão de comprar passagem */}
               <div className="flex justify-end mt-4">
-                {lanchas.map((lancha) => (
-                  <button
-                    key={lancha.id}
-                    onClick={() =>
-                      navigate("/pedido", {
-                        state: {
-                          tripId: lancha.id,
-                          preco: lancha.preco,
-                          origem: "Manaus",
-                          destino: "Parintins"
-                        },
-                      })
-                    }
-                  >
-                    Comprar
-                  </button>
-                ))}
+                <button
+                  onClick={() =>
+                    navigate("/pedido", { state: viagem })
+                  }
+                  className="w-full sm:w-auto bg-sky-700 hover:bg-sky-800 text-white font-bold py-3 px-10 rounded-2xl shadow-md transition-all hover:scale-105 text-base uppercase"
+                >
+                  Comprar passagem
+                </button>
               </div>
             </div>
 
