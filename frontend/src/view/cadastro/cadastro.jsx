@@ -75,7 +75,7 @@ const handleCadastro = async () => {
         {/* Dados pessoais */}
         <section>
          <div className="px-8 pt-8 pb-4 text-left">
-            <h1 className="text-sky-500 text-2xl font-bold mb-4 text-left">Dados pessoais</h1>
+            <h1 className="text-sky-700 text-2xl font-bold mb-4 text-left">Dados pessoais</h1>
             <hr className="border-gray-200" />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
@@ -89,7 +89,7 @@ const handleCadastro = async () => {
         {/* Endereço */}
         <section>
           <div className="px-8 pt-8 pb-4 text-left">
-            <h1 className="text-sky-500 text-2xl font-bold mb-4 text-left">Endereço</h1>
+            <h1 className="text-sky-700 text-2xl font-bold mb-4 text-left">Endereço</h1>
             <hr className="border-gray-200" />
         </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
@@ -100,7 +100,7 @@ const handleCadastro = async () => {
              <select 
               value={municipio}
               onChange={(e) => setMunicipio(e.target.value)}
-              className="border border-gray-300 rounded-md px-3 py-2 text-sm text-gray-700 outline-none focus:border-sky-500 bg-white cursor-pointer">
+              className="border border-gray-300 rounded-md px-3 py-2 text-sm text-gray-700 outline-none focus:border-sky-700 bg-white cursor-pointer">
               <option value="">Selecione seu município</option>
           
               {municipios.sort().map((c, index) => (
@@ -118,7 +118,7 @@ const handleCadastro = async () => {
         {/* dados de acesso */}
         <section>
           <div className="px-8 pt-8 pb-4 text-left">
-            <h1 className="text-sky-500 text-2xl font-bold mb-4 text-left">Dados de acesso</h1>
+            <h1 className="text-sky-700 text-2xl font-bold mb-4 text-left">Dados de acesso</h1>
             <hr className="border-gray-200" />
         </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
@@ -129,7 +129,7 @@ const handleCadastro = async () => {
 
         <div className="flex justify-center w-full">
             <button onClick={handleCadastro}
-            className="w-full sm:w-80 bg-sky-500 text-gray-700 font-semibold py-3 rounded-xl shadow-md hover:brightness-95 transition-all">
+            className="w-full sm:w-80 bg-sky-600 text-white font-semibold py-3 rounded-xl shadow-md hover:bg-sky-700 transition-all">
               Registrar
             </button>
           </div>

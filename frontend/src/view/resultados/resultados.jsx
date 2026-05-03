@@ -15,7 +15,7 @@ function Resultados() {
     <div className="w-full min-h-screen bg-gray-100 p-4 sm:p-6 flex flex-col items-center">
       <div className="w-full max-w-5xl">
 
-        <h1 className="text-4xl font-bold text-center text-green-800 mb-6">
+        <h1 className="text-4xl font-bold text-center text-sky-700 mb-6">
           Resultados da sua busca:
         </h1>
 
@@ -40,7 +40,7 @@ function Resultados() {
                   <p className="text-gray-400 text-[10px] font-bold uppercase mb-1">
                     Embarcação
                   </p>
-                  <p className="font-extrabold text-[#00796b] text-xl leading-tight">
+                  <p className="font-extrabold text-sky-600 text-xl leading-tight">
                     xxxxxxx - Lancha
                   </p>
                   <div className="flex items-center gap-1 text-gray-400 text-xs mt-1">
@@ -50,7 +50,7 @@ function Resultados() {
                   {/* Preço */}
                   <p className="text-gray-400 mt-3 font-bold text-sm uppercase">
                     Preço:{" "}
-                    <span className="text-[#00796b] text-xl">
+                    <span className="text-sky-600 text-xl">
                       R$000
                     </span>
                   </p>
@@ -61,7 +61,7 @@ function Resultados() {
                   <p className="text-gray-400 text-[10px] font-bold uppercase mb-1">
                     Tempo de Viagem
                   </p>
-                  <p className="font-extrabold text-[#00796b] text-3xl">
+                  <p className="font-extrabold text-sky-600 text-3xl">
                     00H
                   </p>
                 </div>
@@ -71,7 +71,7 @@ function Resultados() {
                   <p className="text-gray-400 text-[10px] font-bold uppercase mb-1">
                     Data de Partida
                   </p>
-                  <p className="font-extrabold text-[#00796b] text-lg">
+                  <p className="font-extrabold text-sky-600 text-lg">
                     00/00/0000 - 00H
                   </p>
                 </div>
@@ -84,7 +84,7 @@ function Resultados() {
                   onClick={() =>
                     navigate("/pedido", { state: viagem })
                   }
-                  className="w-full sm:w-auto bg-[#56e39f] hover:bg-[#45cc8b] text-[#004d40] font-bold py-3 px-10 rounded-2xl shadow-md transition-all hover:scale-105 text-base uppercase"
+                  className="w-full sm:w-auto bg-sky-700 hover:bg-sky-800 text-white font-bold py-3 px-10 rounded-2xl shadow-md transition-all hover:scale-105 text-base uppercase"
                 >
                   Comprar passagem
                 </button>

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ShoppingCart } from "lucide-react";
+import { ShoppingCart, CircleUser } from "lucide-react";
 import { useState } from "react";
 
 import { useAuth } from "../../../../context/AuthContext.jsx";
@@ -18,7 +18,7 @@ export default function Navbar() {
   } 
 
   return (
-    <div className="w-full bg-[rgb(21,40,47)] px-6 py-4 flex items-center justify-between">
+    <nav className=" top-0 left-0 w-full h-4 z-100 bg-sky-950 flex justify-between items-center px-6 py-6">
       
       <div className="flex items-center gap-2 px-4">
         <Link to="/" className="text-white text-3xl cursor-pointer transition-transform duration-200 hover:scale-105">🐬</Link>
@@ -40,8 +40,10 @@ export default function Navbar() {
         <>
             <ShoppingCart className="text-white/55 cursor-pointer" size={22} />
             
-            <Link to="/perfil" className="text-white text-sm">
-              Perfil
+             <Link to="/perfil" className="text-white text-sm">
+            <div className="cursor-pointer hover:text-blue-200 transition-colors flex items-center gap-1">
+             <CircleUser size={28} strokeWidth={1.5} />
+             </div>
             </Link>
 
             <button onClick={handleSignOut}
@@ -67,6 +69,6 @@ export default function Navbar() {
           <Hamburger open={open} setOpen={setOpen} />
         </div>
           <MenuLateral open={open} setOpen={setOpen} handleSignOut={handleSignOut} />
-    </div>
+    </nav>
   );
-}
+  } 
