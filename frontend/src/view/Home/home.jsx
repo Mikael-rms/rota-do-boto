@@ -7,7 +7,7 @@ import Recepcao from './components/Recepcao.jsx';
 import Promocoes from './components/Promocao.jsx';
 
 const listaCidades = [
-  { id: 1, nome: "Manaus", imagem: "/manaus2.jpg" },
+  { id: 1, nome: "Manaus", imagem: "/manaus3.jpg" },
   { id: 2, nome: "Parintins", imagem: "/parintins2.jpg" },
   { id: 3, nome: "Tefé", imagem: "/tefe.jpg" },
   { id: 4, nome: "Maués", imagem: "/maues.jpeg" }
@@ -17,15 +17,15 @@ function Home() {
   return (
     <>
     {/* BACKGROUND */}
-    <section className="min-h-screen w-full bg-[linear-gradient(#00000080,#0000004D),url('/bg-home2.jpg')] bg-cover bg-center bg-scroll">
-    <div className="relative inset-0 bg-white/35">
+    <section className="w-full bg-[linear-gradient(#00000080,#0000004D),url('/bg-home3.jpg')] bg-cover relative pb-20bg-cover bg-center bg-scroll">
+    <div className="relative inset-0 bg-white/20 backdrop-blur-xs">
     <div className="relative z-50">
     <Recepcao />
      <Promocoes />
     
     {/* DESTINOS EM ALTA */}
-    <div className="p-8 min-h-screen bg-transparent rounded-lg">
-      <h1 className="text-3xl font-bold mb-4">Destinos em alta</h1>
+    <div className="p-8 h-fit pb-20 bg-transparent rounded-lg">
+      <h1 className="text-3xl mb-8 md:text-4xl font-bold italic drop-shadow-lg text-white">Destinos em alta</h1>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
         {listaCidades.map((cidade) => {
           return (
@@ -38,25 +38,27 @@ function Home() {
       </div>
     </div>
 
+    
     {/* VIAGENS MAIS PROCURADAS */}
-    <section className="p-8 min-h-screen mt-1">
-      <h2 className="text-white text-right text-3xl -mt-4 mb-6 font-bold">Viagens mais procuradas</h2>
+    <section className="p-8 h-fit pb-12 mt-1">
+      <h2 className="text-3xl mb-8 md:text-4xl font-bold italic drop-shadow-lg text-white">Viagens mais procuradas</h2>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 lg:gap-6 h-[400px] bg-transparent">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 lg:gap-6 h-[400px] pb-12 bg-transparent">
         <div className="hidden lg:block lg:row-span-2">
           <CardViagem 
             titulo="Manaus para Tefé"
-            descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+            descricao="Viagem com saída prevista para o próxima semana, com duração de 4 horas. Aproveite a oportunidade!"
             preco="R$ 200,00"
             imagem="/tefe.jpg"
           />
         </div>
-        <CardViagem titulo="Manaus para Parintins" descricao="Consectetur adipiscing elit." imagem="/manaus2.jpg" />
-        <CardViagem titulo="Tabatinga para Manaus" descricao="Consectetur adipiscing elit." imagem="/manaus3.jpg" />
-        <CardViagem titulo="Novo Airão para Tefé"  descricao="Consectetur adipiscing elit." imagem="/parintins.jpeg" />
-        <CardViagem titulo="Coari para Manaus" descricao="Consectetur adipiscing elit." imagem="/maues.jpeg" />
+        <CardViagem titulo="Manaus para Parintins" preco="R$ 150,00" imagem="/parintins2.jpg" />
+        <CardViagem titulo="Tabatinga para Manaus" preco="R$ 90,00" imagem="/manaus3.jpg" />
+        <CardViagem titulo="Coari para Codajás"  preco="R$ 75,00" imagem="/codajas.jpeg" />
+        <CardViagem titulo="Manaus para Coari" preco="R$ 120,00" imagem="/coari.jpeg" />
       </div>
       </section>
+    
     </div>
     </div>
     </section>

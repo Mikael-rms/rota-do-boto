@@ -1,9 +1,10 @@
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { auth } from "../../../firebaseConfig";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useEffect, useState } from "react";
 import { useAuth } from "../../../context/AuthContext";
+import { auth } from "../../../firebaseConfig";
+import { signOut } from "firebase/auth";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../../firebaseConfig";
 
@@ -17,6 +18,9 @@ const PaginaPerfil = () => {
   const [dados, setDados] = useState(null);
 
   const [abaAtiva, setAbaAtiva] = useState('perfil');
+    const handleSignOut = () => {
+    signOut(auth)
+  } 
 
   const navigate = useNavigate();
   useEffect(() => {
@@ -41,26 +45,28 @@ const PaginaPerfil = () => {
       <div className="w-full max-w-6xl flex flex-col md:flex-row gap-8 ml-0">
         
         {/* Menu lateral */}
-        <aside className="w-full md:w-64 bg-white border border-gray-100 rounded-lg shadow-sm h-fit overflow-hidden">
-          <ItemMenu 
-            icone={User} 
-            texto="Meu Perfil" 
-            ativo={abaAtiva === 'perfil'} 
-            aoClicar={() => setAbaAtiva('perfil')} 
-          />
-          <ItemMenu 
-            icone={FileText} 
-            texto="Meus Pedidos" 
-            ativo={abaAtiva === 'pedidos'} 
-            aoClicar={() => setAbaAtiva('pedidos')} 
-          />
-          <ItemMenu 
-              icone={LogOut} 
-              texto="Sair" 
-              ativo={abaAtiva === 'sair'} 
-              aoClicar={() => setAbaAtiva('sair')} 
+        <div className="w-full md:w-64 flex flex-col gap-3">
+          <aside className="bg-white border border-gray-100 rounded-lg shadow-sm overflow-hidden">
+            <ItemMenu 
+              icone={User} 
+              texto="Meu Perfil" 
+              ativo={abaAtiva === 'perfil'} 
+              aoClicar={() => setAbaAtiva('perfil')} 
             />
-        </aside>
+            <ItemMenu 
+              icone={FileText} 
+              texto="Meus Pedidos" 
+              ativo={abaAtiva === '/pedidos'} 
+              aoClicar={() => setAbaAtiva('pedidos')} 
+            />
+          </aside>
+          <button 
+            onClick={handleSignOut}
+            className="bg-white text-black px-4 py-2 rounded-full text-sm font-medium shadow-sm
+            border border-gray-200 hover:bg-gray-100 transition">
+            Sair
+          </button>
+        </div>
 
        <main className="flex-1 bg-white border border-gray-100 rounded-lg shadow-sm overflow-hidden text-left">
 
@@ -71,7 +77,7 @@ const PaginaPerfil = () => {
         {/* Dados pessoais */}
         <section>
          <div className="px-8 pt-8 pb-4 text-left">
-            <h1 className="text-sky-500 text-2xl font-bold mb-4 text-left">Dados pessoais</h1>
+            <h1 className="text-sky-700 text-2xl font-bold mb-4 text-left">Dados pessoais</h1>
             <hr className="border-gray-200" />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
@@ -85,7 +91,7 @@ const PaginaPerfil = () => {
         {/* Endereço */}
         <section>
           <div className="px-8 pt-8 pb-4 text-left">
-            <h1 className="text-sky-500 text-2xl font-bold mb-4 text-left">Endereço</h1>
+            <h1 className="text-sky-700 text-2xl font-bold mb-4 text-left">Endereço</h1>
             <hr className="border-gray-200" />
         </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">

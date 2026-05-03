@@ -43,7 +43,7 @@ const TravelCard = () => {
         <div className="relative">
           <button 
             onClick={() => setShowMenuTipo(!showMenuTipo)}
-            className="bg-[#00a3b1] text-white px-8 py-2.5 flex items-center gap-2 text-xs font-bold tracking-wider uppercase rounded-t-xl shadow-sm min-w-[180px] justify-center transition-all hover:bg-[#008c9a]"
+            className="bg-sky-700 text-white px-8 py-2.5 flex items-center gap-2 text-xs font-bold tracking-wider uppercase rounded-t-xl shadow-sm min-w-[180px] justify-center transition-all hover:bg-sky-800"
           >
             {tipoViagem === 'ida-volta' ? 'Ida e Volta' : 'Apenas Ida'}
             <ChevronDown size={14} className={`transition-transform duration-300 ${showMenuTipo ? 'rotate-180' : ''}`} />
@@ -64,13 +64,13 @@ const TravelCard = () => {
         <div className="flex flex-col lg:flex-row items-center lg:flex-[2.2] w-full gap-6 lg:gap-0">
           
           <div className="flex items-center gap-3 group w-full lg:flex-1 justify-center lg:justify-start lg:pl-8">
-            <MapPin size={20} className="text-gray-400 group-hover:text-[#00a3b1]" />
+            <MapPin size={20} className="text-gray-400 group-hover:text-sky-600" />
             <input 
               type="text"
               placeholder="Origem"
               value={origem}
               onChange={(e) => setOrigem(e.target.value)}
-              className="bg-transparent border-none outline-none text-gray-700 font-medium text-lg placeholder-gray-400 w-full max-w-[150px] focus:ring-0 group-hover:text-[#00a3b1] text-center lg:text-left"
+              className="bg-transparent border-none outline-none text-gray-700 font-medium text-lg placeholder-gray-400 w-full max-w-[150px] focus:ring-0 group-hover:text-sky-600 text-center lg:text-left"
             />
           </div>
 
@@ -78,17 +78,17 @@ const TravelCard = () => {
             onClick={handleInvert} 
             className="group p-2 active:scale-90 transition-all rotate-90 lg:rotate-0 lg:-ml-8 lg:mr-4"
           >
-            <Repeat size={20} className="text-gray-400 group-hover:text-[#00a3b1] group-hover:rotate-180 transition-transform duration-500" />
+            <Repeat size={20} className="text-gray-400 group-hover:text-sky-600 group-hover:rotate-180 transition-transform duration-500" />
           </button>
 
           <div className="flex items-center gap-3 group w-full lg:flex-1 justify-center lg:justify-start">
-            <MapPin size={20} className="text-gray-400 group-hover:text-[#00a3b1]" />
+            <MapPin size={20} className="text-gray-400 group-hover:text-sky-600" />
             <input 
               type="text"
               placeholder="Destino"
               value={destino}
               onChange={(e) => setDestino(e.target.value)}
-              className="bg-transparent border-none outline-none text-gray-700 font-medium text-lg placeholder-gray-400 w-full max-w-[150px] focus:ring-0 group-hover:text-[#00a3b1] text-center lg:text-left"
+              className="bg-transparent border-none outline-none text-gray-700 font-medium text-lg placeholder-gray-400 w-full max-w-[150px] focus:ring-0 group-hover:text-sky-600 text-center lg:text-left"
             />
           </div>
         </div>
@@ -100,12 +100,12 @@ const TravelCard = () => {
           
           {/* Ida */}
           <div className="relative flex items-center gap-3 cursor-pointer group h-12" onClick={() => idaRef.current.showPicker()}>
-            <Calendar size={20} className="text-gray-400 group-hover:text-[#00a3b1]" />
+            <Calendar size={20} className="text-gray-400 group-hover:text-sky-600" />
             <div className="flex flex-col items-center">
-              <span className={`font-medium text-base transition-all duration-300 group-hover:text-[#00a3b1] ${dataIda ? 'leading-none text-gray-800' : 'text-gray-600'}`}>
+              <span className={`font-medium text-base transition-all duration-300 group-hover:text-sky-600 ${dataIda ? 'leading-none text-gray-800' : 'text-gray-600'}`}>
                 {formatarData(dataIda) || "Ida"}
               </span>
-              <span className={`text-[#00a3b1] text-[10px] font-bold uppercase transition-all duration-300 transform ${dataIda ? 'translate-y-0 opacity-100 mt-1' : '-translate-y-2 opacity-0 h-0'}`}>
+              <span className={`text-sky-500 text-[10px] font-bold uppercase transition-all duration-300 transform ${dataIda ? 'translate-y-0 opacity-100 mt-1' : '-translate-y-2 opacity-0 h-0'}`}>
                 Ida
               </span>
             </div>
@@ -115,12 +115,12 @@ const TravelCard = () => {
           {/* Volta */}
           {tipoViagem === 'ida-volta' && (
             <div className="relative flex items-center gap-3 cursor-pointer group h-12" onClick={() => voltaRef.current.showPicker()}>
-              <Calendar size={20} className="text-gray-400 group-hover:text-[#00a3b1]" />
+              <Calendar size={20} className="text-gray-400 group-hover:text-sky-600" />
               <div className="flex flex-col items-center">
-                <span className={`font-medium text-base transition-all duration-300 group-hover:text-[#00a3b1] ${dataVolta ? 'leading-none text-gray-800' : 'text-gray-600'}`}>
+                <span className={`font-medium text-base transition-all duration-300 group-hover:text-sky-600 ${dataVolta ? 'leading-none text-gray-800' : 'text-gray-600'}`}>
                   {formatarData(dataVolta) || "Volta"}
                 </span>
-                <span className={`text-[#00a3b1] text-[10px] font-bold uppercase transition-all duration-300 transform ${dataVolta ? 'translate-y-0 opacity-100 mt-1' : '-translate-y-2 opacity-0 h-0'}`}>
+                <span className={`text-sky-500 text-[10px] font-bold uppercase transition-all duration-300 transform ${dataVolta ? 'translate-y-0 opacity-100 mt-1' : '-translate-y-2 opacity-0 h-0'}`}>
                   Volta
                 </span>
               </div>
@@ -130,18 +130,18 @@ const TravelCard = () => {
 
           {/* Passageiros */}
           <div className="flex items-center gap-3 h-12 group">
-            <Users size={20} className="text-gray-400 group-hover:text-[#00a3b1]" />
+            <Users size={20} className="text-gray-400 group-hover:text-sky-600" />
             <div className="flex flex-col items-center">
               {!interagiuPassageiros ? (
-                <span onClick={() => setInteragiuPassageiros(true)} className="text-base text-gray-600 font-medium cursor-pointer group-hover:text-[#00a3b1]">Passageiros</span>
+                <span onClick={() => setInteragiuPassageiros(true)} className="text-base text-gray-600 font-medium cursor-pointer group-hover:text-sky-600">Passageiros</span>
               ) : (
                 <div className="flex flex-col items-center animate-in fade-in slide-in-from-top-1">
                   <div className="flex items-center gap-3 leading-none">
-                    <button onClick={() => setPassageiros(Math.max(1, passageiros - 1))} className="text-[#00a3b1] font-bold text-lg hover:scale-110 transition-transform">-</button>
+                    <button onClick={() => setPassageiros(Math.max(1, passageiros - 1))} className="text-sky-600 font-bold text-lg hover:scale-110 transition-transform">-</button>
                     <span className="text-gray-800 font-bold text-base">{passageiros}</span>
-                    <button onClick={() => setPassageiros(passageiros + 1)} className="text-[#00a3b1] font-bold text-lg hover:scale-110 transition-transform">+</button>
+                    <button onClick={() => setPassageiros(passageiros + 1)} className="text-sky-600 font-bold text-lg hover:scale-110 transition-transform">+</button>
                   </div>
-                  <span className="text-[#00a3b1] text-[10px] font-bold uppercase mt-1">Passageiros</span>
+                  <span className="text-sky-600 text-[10px] font-bold uppercase mt-1">Passageiros</span>
                 </div>
               )}
             </div>
@@ -150,7 +150,7 @@ const TravelCard = () => {
 
         {/* BOTÃO BUSCA */}
         <div className="w-full lg:w-auto flex justify-center lg:pr-2">
-          <button className="bg-[#00a3b1] hover:bg-[#008c9a] transition-all p-4 rounded-full text-white shadow-lg active:scale-95 flex items-center justify-center">
+          <button className="bg-sky-700 hover:bg-sky-800 transition-all p-4 rounded-full text-white shadow-lg active:scale-95 flex items-center justify-center">
             <Search size={22} strokeWidth={2.5} />
           </button>
         </div>
