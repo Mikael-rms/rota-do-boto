@@ -63,7 +63,7 @@ const TravelCard = () => {
         {/* BLOCO ORIGEM / INVERSÃO / DESTINO */}
         <div className="flex flex-col lg:flex-row items-center lg:flex-[2.2] w-full gap-6 lg:gap-0">
           
-          <div className="flex items-center gap-3 group w-full lg:flex-1 justify-center lg:justify-start lg:pl-8">
+          <div className="flex items-center gap-3 group w-full -mb-2 rounded-lg border border-black-300 p-3 md:border-none flex-1 justify-center md:mb-0 lg:justify-start lg:pl-8">
             <MapPin size={20} className="text-gray-400 group-hover:text-sky-600" />
             <input 
               type="text"
@@ -76,12 +76,12 @@ const TravelCard = () => {
 
           <button 
             onClick={handleInvert} 
-            className="group p-2 active:scale-90 transition-all rotate-90 lg:rotate-0 lg:-ml-8 lg:mr-4"
+            className="-mb-2 active:scale-90 transition-all rotate-90 lg:rotate-0 lg:mb-0 lg:-ml-6 lg:mr-2"
           >
             <Repeat size={20} className="text-gray-400 group-hover:text-sky-600 group-hover:rotate-180 transition-transform duration-500" />
           </button>
 
-          <div className="flex items-center gap-3 group w-full lg:flex-1 justify-center lg:justify-start">
+          <div className="flex items-center gap-3 group w-full rounded-lg border border-black-300 -mb-2 p-3 md:border-none lg:flex-1 justify-center lg:mb-0 lg:justify-start">
             <MapPin size={20} className="text-gray-400 group-hover:text-sky-600" />
             <input 
               type="text"
@@ -99,7 +99,8 @@ const TravelCard = () => {
         <div className={`flex flex-col sm:flex-row items-center gap-8 lg:gap-4 w-full lg:w-auto ${tipoViagem === 'ida-volta' ? 'lg:flex-[2.8]' : 'lg:flex-[1.8]'} justify-around`}>
           
           {/* Ida */}
-          <div className="relative flex items-center gap-3 cursor-pointer group h-12" onClick={() => idaRef.current.showPicker()}>
+          <div className="relative flex items-center justify-center -mb-2 gap-3 group w-full rounded-lg border border-black-300 cursor-pointer h-13 lg:mb-0 md:justify-start md:w-auto md:rounded-none md:border-none"
+          onClick={() => idaRef.current.showPicker()}>
             <Calendar size={20} className="text-gray-400 group-hover:text-sky-600" />
             <div className="flex flex-col items-center">
               <span className={`font-medium text-base transition-all duration-300 group-hover:text-sky-600 ${dataIda ? 'leading-none text-gray-800' : 'text-gray-600'}`}>
@@ -114,7 +115,8 @@ const TravelCard = () => {
 
           {/* Volta */}
           {tipoViagem === 'ida-volta' && (
-            <div className="relative flex items-center gap-3 cursor-pointer group h-12" onClick={() => voltaRef.current.showPicker()}>
+            <div className="relative flex items-center justify-center -mb-4 gap-3 group w-full rounded-lg border border-black-300 p-2 cursor-pointer h-13 lg:mb-0 md:justify-start md:w-auto md:rounded-none md:border-none md:p-0"
+            onClick={() => voltaRef.current.showPicker()}>
               <Calendar size={20} className="text-gray-400 group-hover:text-sky-600" />
               <div className="flex flex-col items-center">
                 <span className={`font-medium text-base transition-all duration-300 group-hover:text-sky-600 ${dataVolta ? 'leading-none text-gray-800' : 'text-gray-600'}`}>
@@ -129,7 +131,7 @@ const TravelCard = () => {
           )}
 
           {/* Passageiros */}
-          <div className="flex items-center gap-3 h-12 group">
+          <div className="flex items-center gap-3 p-2 -mb-4 h-12 lg:mb-0 group">
             <Users size={20} className="text-gray-400 group-hover:text-sky-600" />
             <div className="flex flex-col items-center">
               {!interagiuPassageiros ? (
@@ -150,8 +152,9 @@ const TravelCard = () => {
 
         {/* BOTÃO BUSCA */}
         <div className="w-full lg:w-auto flex justify-center lg:pr-2">
-          <button className="bg-sky-700 hover:bg-sky-800 transition-all p-4 rounded-full text-white shadow-lg active:scale-95 flex items-center justify-center">
+          <button className="bg-sky-700 hover:bg-sky-800 w-full transition-all p-4 ml-4 rounded-full text-white lg:w-auto  shadow-lg active:scale-95 flex items-center justify-center">
             <Search size={22} strokeWidth={2.5} />
+            <span className="ml-2 md:hidden">Buscar</span>
           </button>
         </div>
 
