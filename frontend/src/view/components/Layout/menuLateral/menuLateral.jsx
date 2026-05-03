@@ -1,7 +1,7 @@
 import { createPortal } from "react-dom";
 import { Link } from "react-router-dom";
 
-import { ShoppingCart } from "lucide-react";
+import { ShoppingCart, CircleUser } from "lucide-react";
 import { useAuth } from "../../../../context/AuthContext.jsx";
 
 function MobileMenu({ open, setOpen, handleSignOut }) {
@@ -18,7 +18,7 @@ function MobileMenu({ open, setOpen, handleSignOut }) {
 
       {/* Sidebar */}
       <div
-        className={`fixed top-0 right-0 h-screen w-55 bg-[rgb(21,40,47)] text-white z-[9999] transform transition-all duration-300 ${
+        className={`fixed top-0 right-0 h-screen w-55 bg-sky-950 text-white z-[9999] transform transition-all duration-300 ${
           open ? "translate-x-0" : "translate-x-full"
         }`}
       >
@@ -31,8 +31,9 @@ function MobileMenu({ open, setOpen, handleSignOut }) {
               <Link 
                 to="/perfil" 
                 onClick={() => setOpen(false)}
-                className="hover:text-white/70 transition">
-                Perfil
+                className="flex items-center gap-2 cursor-pointer hover:text-white/70 transition">
+                <CircleUser size={20} strokeWidth={1.5} />
+                <span>Perfil</span>
               </Link>
 
               <div className="flex items-center gap-2 cursor-pointer hover:text-white/70 transition">
