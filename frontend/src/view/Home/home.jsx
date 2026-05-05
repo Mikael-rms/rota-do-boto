@@ -53,7 +53,7 @@ function Home() {
             imagem="/tefe.jpg"
           />
         </div>
-        <ViagemPrincipal titulo="Tabatinga para Manaus" preco="R$ 90,00" imagem="/manaus3.jpg" rota="/resultados"/>
+        <ViagemPrincipal titulo="Manaus para Parintins" preco="R$ 120,00" imagem="/parintins2.jpg" rota="/resultados"/>
         <CardViagem titulo="Tabatinga para Manaus" preco="R$ 90,00" imagem="/manaus3.jpg" />
         <CardViagem titulo="Coari para Codajás"  preco="R$ 75,00" imagem="/codajas.jpeg" />
         <CardViagem titulo="Manaus para Coari" preco="R$ 120,00" imagem="/coari.jpeg" />
