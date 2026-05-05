@@ -2,12 +2,13 @@ import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 
-// Import dos estilos do Swiper
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
-const Promocoes = () => {
+import CardPromocao from './CardPromocao';
+
+const Promocao = () => {
   const dadosPromo = [
     { id: 1, destino: "Itapiranga para Urucará", img: "/urucara.jpg", desconto: "20% OFF", de: "R$ 350", por: "R$ 280" },
     { id: 2, destino: "Manaus para Parintins", img: "/parintins2.jpg", desconto: "15% OFF", de: "R$ 180", por: "R$ 153" },
@@ -17,7 +18,7 @@ const Promocoes = () => {
 
   return (
     <section id="promocoes" className="py-20 text-white overflow-hidden bg-transparent">
-  
+
       <style dangerouslySetInnerHTML={{ __html: `
         #promocoes .swiper-button-next, 
         #promocoes .swiper-button-prev {
@@ -51,35 +52,7 @@ const Promocoes = () => {
         >
           {dadosPromo.map((promo) => (
             <SwiperSlide key={promo.id}>
-              <div className="relative group overflow-hidden h-72 w-full shadow-lg border border-white/10 bg-transparent cursor-pointer rounded-2xl">
-                
-                <img 
-                  src={promo.img} 
-                  alt={promo.destino} 
-                  className="object-cover w-full h-full transition-transform duration-700 ease-out group-hover:scale-107" 
-                />
-                
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-90 transition-opacity duration-500 group-hover:opacity-100"></div>
-                
-                <div className="absolute top-4 right-4 bg-orange-600 text-white font-bold px-3 py-1 rounded-full text-xs animate-pulse">
-                  {promo.desconto}
-                </div>
-
-                <div className="absolute inset-0 flex flex-col justify-end p-6">
-                  <h3 className="text-white text-2xl font-bold italic drop-shadow-[0_4px_4px_rgba(0,0,0,0.8)] transition-transform duration-500 group-hover:-translate-y-2">
-                    {promo.destino}
-                  </h3>
-                  
-                  <div className="flex justify-between items-baseline mt-3 opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform group-hover:-translate-y-1">
-                    <span className="text-gray-400 line-through text-sm italic">
-                        De: {promo.de}
-                    </span>
-                    <span className="text-sky-700 font-bold text-2xl drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
-                        {promo.por}
-                    </span>
-                  </div>
-                </div>
-              </div>
+              <CardPromocao {...promo} />
             </SwiperSlide>
           ))}
         </Swiper>
@@ -88,4 +61,4 @@ const Promocoes = () => {
   );
 };
 
-export default Promocoes;
+export default Promocao;

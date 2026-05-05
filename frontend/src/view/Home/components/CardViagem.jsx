@@ -7,7 +7,7 @@ export default function CardViagem({ imagem, titulo, descricao, preco }) {
         className="absolute inset-0 object-cover w-full h-full transition-transform duration-500 group-hover:scale-110" 
         alt={titulo}
       />
-
+      
       {/* retangulo branco */}
       <div className="absolute bottom-0 left-0 w-3/4 bg-white/90 p-4">
         <h4 className="font-bold text-gray-800 text-lg">{titulo}</h4>
